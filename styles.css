@@ -4,6 +4,15 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    background-color: #F0F0F0; /* Light Gray background */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 /* Header styles */
@@ -11,6 +20,7 @@ header {
     background-color: #00798C; /* Dark Cyan */
     padding: 10px;
     text-align: right;
+    width: 100%;
 }
 
 nav ul {
@@ -32,6 +42,13 @@ nav ul li a {
 /* Section styles */
 section {
     padding: 20px 0;
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    background-color: #FFF; /* White */
+    border-radius: 10px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    margin-bottom: 20px;
 }
 
 section h1 {
@@ -52,16 +69,5 @@ footer {
     padding: 10px;
     text-align: center;
     color: #FFF; /* White */
-}
-
-/* Responsive design */
-@media screen and (max-width: 768px) {
-    header nav {
-        text-align: center;
-    }
-    header nav ul li {
-        display: block;
-        margin: 5px 0;
-    }
-    /* Add more responsive styles if needed */
+    width: 100%;
 }
