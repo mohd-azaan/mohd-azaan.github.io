@@ -1,0 +1,52 @@
+/* CSS styles */
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+   }
+   
+   header {
+    background-color: #f4f4f4;
+    padding: 10px;
+    text-align: right;
+   }
+   
+   nav ul {
+    list-style-type: none;
+    padding: 0;
+   }
+   
+   nav ul li {
+    display: inline;
+    margin-right: 10px;
+   }
+   
+   nav ul li a {
+    color: #333;
+    text-decoration: none;
+   }
+   
+   section {
+    padding: 20px 0;
+   }
+   
+   section h1 {
+    margin-bottom: 10px;
+   }
+   
+   .details {
+    font-size: 1.1em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+   }
+   
+   .interests {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+   }
+   
+   footer {
+    background-color: #f4f4f4;
+    padding: 10px;
+    text-align: center;
+   }
