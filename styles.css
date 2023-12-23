@@ -1,52 +1,67 @@
-/* CSS styles */
-
+/* General styles */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-   }
-   
-   header {
-    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styles */
+header {
+    background-color: #00798C; /* Dark Cyan */
     padding: 10px;
     text-align: right;
-   }
-   
-   nav ul {
+}
+
+nav ul {
     list-style-type: none;
     padding: 0;
-   }
-   
-   nav ul li {
+    margin: 0;
+}
+
+nav ul li {
     display: inline;
     margin-right: 10px;
-   }
-   
-   nav ul li a {
-    color: #333;
+}
+
+nav ul li a {
+    color: #FFF; /* White */
     text-decoration: none;
-   }
-   
-   section {
+}
+
+/* Section styles */
+section {
     padding: 20px 0;
-   }
-   
-   section h1 {
+}
+
+section h1 {
     margin-bottom: 10px;
-   }
-   
-   .details {
-    font-size: 1.1em;
-    line-height: 1.5;
-    margin-bottom: 20px;
-   }
-   
-   .interests {
-    font-size: 1.1em;
-    margin-bottom: 20px;
-   }
-   
-   footer {
-    background-color: #f4f4f4;
+    color: #FF5A5F; /* Reddish Pink */
+}
+
+.details,
+.interests,
+section p,
+section ul {
+    color: #484848; /* Dark Gray */
+}
+
+/* Footer styles */
+footer {
+    background-color: #00798C; /* Dark Cyan */
     padding: 10px;
     text-align: center;
-   }
+    color: #FFF; /* White */
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    header nav {
+        text-align: center;
+    }
+    header nav ul li {
+        display: block;
+        margin: 5px 0;
+    }
+    /* Add more responsive styles if needed */
+}
