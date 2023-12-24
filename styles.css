@@ -1,10 +1,15 @@
+/* Reset default browser styles */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
 /* General styles */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    margin: 0;
-    padding: 0;
     background-color: #F0F0F0; /* Light Gray background */
+    margin: 0;
 }
 
 .container {
@@ -47,7 +52,6 @@ section {
     max-width: 800px;
     background-color: #FFF; /* White */
     border-radius: 10px;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     margin-bottom: 20px;
 }
 
@@ -56,11 +60,19 @@ section h1 {
     color: #FF5A5F; /* Reddish Pink */
 }
 
-.details,
-.interests,
-section p,
-section ul {
-    color: #484848; /* Dark Gray */
+.details {
+    margin-top: 20px;
+}
+
+.profile-photo {
+    width: 200px; /* Adjust the size of the photo */
+    border-radius: 50%; /* Make it circular if it's a portrait photo */
+    /* Add other styling if needed */
+}
+
+.certificate {
+    width: 300px; /* Adjust the size of the certificates */
+    /* Add other styling if needed */
 }
 
 /* Footer styles */
