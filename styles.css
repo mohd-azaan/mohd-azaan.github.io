@@ -70,10 +70,18 @@ section h1 {
     /* Add other styling if needed */
 }
 
+/* ... (Your existing CSS code) */
+
 .certificate {
     width: 300px; /* Adjust the size of the certificates */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adding shadow to certificates */
+    margin: 10px; /* Adjust margin for better spacing */
+    border-radius: 8px; /* Rounded corners for certificates */
+    display: inline-block; /* Align certificates horizontally */
+    vertical-align: top; /* Align certificates at the top */
     /* Add other styling if needed */
 }
+
 
 /* Footer styles */
 footer {
