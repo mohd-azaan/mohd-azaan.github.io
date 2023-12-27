@@ -1,38 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
+    <title>Project Showcase - Mohammed Azaan</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
     <div class="container">
         <header>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <!-- Add other navigation items if needed -->
+            <nav >
+                <ul><br>
+                    <li><a href="#project1">Banking-App Prototype</a></li>
+                    <li><a href="#project2">Color-Following Game</a></li>
+                    <li><a href="#project6">Connect-four Game</a></li>
+                    <li><a href="#project3">Tic-Tac-Toe Game</a></li>
+                    <li><a href="#project4">Analog Clock</a></li>
+                    <li><a href="#project5">Digital Clock</a></li>
+                    <!-- Add more project links if needed -->
                 </ul>
             </nav>
         </header>
 
         <main>
-            <h1>Projects</h1>
+            <section id="projects">
+                <h1>PROJECTS</h1>
+                <h4>Source Code Below</h4>         
+                <a href="https://github.com/mohd-azaan/bankpy" target="_blank">Banking-App-Prototype</a>
+                <br><a href="https://github.com/mohd-azaan/color_following_game/blob/master/main.py" target="_blank">Color-Following-Game</a>
+                <br><a href="https://github.com/mohd-azaan/tictactoe/blob/main/main.py " target="_blank">Tic-Tac-toe</a>
+                <br><a href="https://github.com/mohd-azaan/analog_clock/blob/master/analog_clock.py"target="_blank">Analog Clock</a>
+                <br><a href="https://github.com/mohd-azaan/analog_clock/blob/master/digital_clock.py"target="_blank">Digital Clock</a>
+                <br><a href="https://github.com/mohd-azaan/Connect-four-game"target="_blank">Connect-four Game</a>
+            </section>
+            
+            <section id="project1">
+                <h1>Banking App Prototype</h1>
+                <p>A brief description of the project...</p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_HERE" frameborder="0" allowfullscreen></iframe>
+                <!-- Replace VIDEO_ID_HERE with your YouTube video ID -->
+            </section>
 
+            <section id="project2">
+                <h1>Color-Following Game</h1>
+                <div>
+                    <p>
+                        The Color-Following Game is a Python-based interactive challenge that tests a player's memory and responsiveness by flashing colors in a sequence that the player needs to replicate. Developed using a custom GUI library, the game provides an engaging platform for users to follow and recreate complex color patterns.
+                    </p>
+                    
+                    <h2>Features:</h2>
+                    <ul>
+                        <li><strong>Memory Challenge:</strong> Players must replicate a sequence of colors shown by clicking corresponding buttons.</li>
+                        <li><strong>Difficulty Levels:</strong> Offers multiple difficulty modes, each with faster sequences and shorter time to respond.</li>
+                        <li><strong>High Score Tracking:</strong> Keeps track of the highest scores achieved in different difficulty levels.</li>
+                        <li><strong>Interactive Interface:</strong> Uses vibrant color flashes and sound effects to engage players.</li>
+                    </ul>
+                
+                    <h2>Implementation Details:</h2>
+                    <ul>
+                        <li><strong>Sequence Generation:</strong> Randomly generates color sequences of varying lengths based on the selected difficulty level.</li>
+                        <li><strong>User Response Check:</strong> Validates player input against the displayed color sequence.</li>
+                        <li><strong>Sound Effects:</strong> Utilizes sound effects to enhance the gaming experience.</li>
+                        <li><strong>Score Tracking:</strong> Keeps track of the current and highest scores achieved by players.</li>
+                    </ul>
+                
+                    <h2>Technologies Used:</h2>
+                    <ul>
+                        <li><strong>Python:</strong> Employed Python for game logic and functionality.</li>
+                        <li><strong>Custom GUI Library:</strong> Developed using a custom GUI library (replace with library name) for creating the graphical user interface.</li>
+                        <li><strong>Randomization:</strong> Utilized Python's random module for generating random sequences.</li>
+                        <li><strong>Pygame:</strong> Integrated Pygame for sound effects and audio playback.</li>
+                    </ul>
+                
+                    <p>
+                        The Color-Following Game showcases my proficiency in game development, user interface design, and logic implementation. It demonstrates an engaging and challenging gaming experience while assessing players' memory and responsiveness.
+                    </p>
+                </div>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_HERE" frameborder="0" allowfullscreen></iframe>
+            </section>
             
 
-                <!-- Add other projects here -->
+            <!-- Repeat similar sections for other projects -->
+            <section id="project5">
+                <h1>Connect Four Game</h1>
+                <div>
+                    <p>
+                        The Connect Four game is a Python-based rendition of the classic tabletop game where two players take turns dropping colored discs into a vertical grid. The objective is to form a line of four discs of the same color, either vertically, horizontally, or diagonally, to win the game.
+                    </p>
+                    
+                    <h2>Features:</h2>
+                    <ul>
+                        <li><strong>Interactive Gameplay:</strong> Players take turns dropping discs into the grid by clicking on the desired column.</li>
+                        <li><strong>Winning Condition:</strong> Detects and announces a win when a player successfully forms a line of four discs.</li>
+                        <li><strong>Dynamic Grid:</strong> Utilizes a 7x7 grid to provide a playing field for the Connect Four game.</li>
+                        <li><strong>Color-Coded Discs:</strong> Represents player moves with distinct colors for easy identification.</li>
+                    </ul>
+                
+                    <h2>Implementation Details:</h2>
+                    <ul>
+                        <li><strong>Grid Representation:</strong> Implements a grid structure to manage player moves and track the game state.</li>
+                        <li><strong>Win Detection Algorithm:</strong> Checks for winning combinations horizontally, vertically, and diagonally after each move.</li>
+                        <li><strong>User Interface:</strong> Uses a custom GUI library to create an interactive and visually appealing game board.</li>
+                    </ul>
+                
+                    <h2>Technologies Used:</h2>
+                    <ul>
+                        <li><strong>Python:</strong> Utilized Python programming for game logic and GUI development.</li>
+                        <li><strong>Custom GUI Library:</strong> Developed using a custom GUI library (replace with library name) for the game's graphical user interface.</li>
+                        <li><strong>PIL (Python Imaging Library):</strong> Integrated PIL for image handling and displaying player discs.</li>
+                    </ul>
+                
+                    <p>
+                        The Connect Four game demonstrates my proficiency in game development, logic implementation, and graphical user interface design using Python. It offers an enjoyable gaming experience while challenging players' strategic thinking and pattern recognition skills.
+                    </p>
+                </div>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_HERE" frameborder="0" allowfullscreen></iframe>
+            </section>
+            
+            
+            <!-- Example for Tic-Tac-Toe -->
+            <section id="project4">
+                <h1>Tic Tac Toe Game</h1>
+                <div>
+                    <p>
+                        This Python-based Tic Tac Toe game exemplifies my expertise in graphical user interface (GUI) development using Tkinter. The game provides an interactive platform for two players to engage in the classic 'X' and 'O' battle on a 3x3 grid.
+                    </p>
+                    
+                    <h2>Features:</h2>
+                    <ul>
+                        <li><strong>Dynamic Gameplay:</strong> Players take turns marking 'X' and 'O' on the grid.</li>
+                        <li><strong>Interactive Interface:</strong> Utilizes Tkinter's Button widgets for a user-friendly game board.</li>
+                        <li><strong>Player Name Entry:</strong> Allows players to enter their names before starting the game.</li>
+                    </ul>
+                
+                    <h2>Implementation Details:</h2>
+                    <ul>
+                        <li><strong>Button Grid:</strong> Created a 3x3 grid layout using Tkinter's Button widgets to represent the game board.</li>
+                        <li><strong>Winning Logic:</strong> Implemented an algorithm to detect winning combinations across rows, columns, and diagonals.</li>
+                        <li><strong>Player Interaction:</strong> Programmed the game to switch between players' turns based on button clicks.</li>
+                    </ul>
+                
+                    <h2>Technologies Used:</h2>
+                    <ul>
+                        <li><strong>Python:</strong> Utilized Python for game logic and GUI development.</li>
+                        <li><strong>Tkinter:</strong> Leveraged Tkinter library for creating the game's graphical user interface.</li>
+                    </ul>
+                
+                    <p>
+                        This project serves as a testament to my skills in Python programming, GUI development, and game logic implementation using Tkinter, offering an engaging gaming experience for players.
+                    </p>
+                </div>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_HERE" frameborder="0" allowfullscreen></iframe>
+            </section>
 
-            </div>
+            <section id="project5">
+                <h1>Analog Clock</h1>
+                <div>
+                    <p>
+                        Developed using Python's Tkinter library, this analog clock project showcases my skills in graphical user interface (GUI) design and time-related computations. The clock utilizes the system time to display the current hour, minute, and second hands, offering a real-time visual representation.
+                    </p>
+                    
+                    <h2>Features:</h3>
+                    <ul>
+                        <li><strong>Accurate Time Display:</strong> Utilizes the system time to accurately display hours, minutes, and seconds.</li>
+                        <li><strong>Dynamic Hand Movement:</strong> The hour, minute, and second hands move dynamically, updating every second.</li>
+                        <li><strong>Visually Appealing Design:</strong> Features an aesthetically pleasing analog clock interface designed using Tkinter's Canvas widget.</li>
+                    </ul>
+                
+                    <h2>Implementation Details:</h2>
+                    <ul>
+                        <li><strong>Canvas Widgets:</strong> Employed Tkinter's Canvas widget to create the clock interface.</li>
+                        <li><strong>Trigonometry for Hand Movement:</strong> Utilized trigonometric calculations to position the hour, minute, and second hands correctly.</li>
+                        <li><strong>Graphics Handling:</strong> Incorporated image handling with PhotoImage to integrate a clock image into the interface.</li>
+                    </ul>
+                
+                    <h2>Technologies Used:</h2>
+                    <ul>
+                        <li><strong>Python:</strong> Utilized Python programming language for the backend logic.</li>
+                        <li><strong>Tkinter:</strong> Leveraged Tkinter library for creating the graphical user interface.</li>
+                        <li><strong>Time Module:</strong> Utilized the <code>strftime</code> function from the <code>time</code> module to fetch system time.</li>
+                    </ul>
+                
+                    <h2>Project Demo:</h2>
+                    <p>
+                        The analog clock project demonstrates my proficiency in Python programming, GUI development, and utilization of mathematical concepts for graphical representation. The clock's hands move smoothly, providing an interactive and visually appealing representation of the current time.
+                    </p>
+                    
+                    <p>Feel free to check out the project's source code <a href="link-to-your-github-repo">here</a> for a deeper understanding of its implementation.</p>
+                </div>
+                
+            
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_HERE" frameborder="0" allowfullscreen></iframe>
+                <!-- Replace VIDEO_ID_HERE with your YouTube video ID -->
+            </section>
+            
+
+            <section id="project6">
+                <h1>Digital Clock</h1>
+                <div>
+                    <p>
+                        Developed using Python's Tkinter library, this digital clock project showcases my proficiency in creating graphical user interfaces (GUI) and real-time timekeeping functionalities. The clock displays the current time in hours, minutes, seconds, and the AM/PM indicator in a visually clear and bold style.
+                    </p>
+                    
+                    <h2>Features:</h2>
+                    <ul>
+                        <li><strong>Real-time Time Display:</strong> Utilizes the system time to display the current hour, minute, second, and AM/PM indicator.</li>
+                        <li><strong>Dynamic Update:</strong> The clock updates every second, reflecting the current time accurately.</li>
+                        <li><strong>Clear and Bold Design:</strong> Features a clear and bold display style using the 'Helvetica' font.</li>
+                    </ul>
+                
+                    <h2>Implementation Details:</h2>
+                    <ul>
+                        <li><strong>Tkinter Label Widget:</strong> Utilized Tkinter's Label widget to display and update the time dynamically.</li>
+                        <li><strong>Time Module Integration:</strong> Utilized the `strftime` function from the `time` module to format and fetch system time.</li>
+                        <li><strong>Function for Clock Update:</strong> Implemented a function that continuously updates the time display every second.</li>
+                    </ul>
+                
+                    <h2>Technologies Used:</h2>
+                    <ul>
+                        <li><strong>Python:</strong> Utilized Python programming language for the backend logic.</li>
+                        <li><strong>Tkinter:</strong> Utilized Tkinter library for creating the graphical user interface.</li>
+                    </ul>
+                
+                    <h2>Project Demo:</h2>
+                    <p>
+                        The digital clock project demonstrates my capabilities in Python GUI development and real-time data presentation. The clock updates seamlessly every second, providing a clear and bold representation of the current time in hours, minutes, seconds, and AM/PM indicator.
+                    </p>
+                    
+                    <p>Feel free to check out the source code <a href="link-to-your-github-repo">here</a> for a deeper understanding of its implementation.</p>
+                </div>
+                
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_HERE" frameborder="0" allowfullscreen></iframe>
+                <!-- Replace VIDEO_ID_HERE with your YouTube video ID -->
+            </section>
+            
+
+
+            <!-- Add more sections for other projects -->
+
         </main>
 
         <footer>
             <p>&copy; 2023 Mohammed Azaan</p>
         </footer>
     </div>
-</body>
 
+    <!-- Your JavaScript code if needed -->
+    <script src="your-script.js"></script>
+</body>
 </html>

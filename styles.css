@@ -4,6 +4,21 @@ html, body {
     padding: 0;
 }
 
+section#project1 div,
+section#project2 div,
+section#project3 div,
+section#project4 div,
+section#project5 div,
+section#project6 div{ /* Selecting project sections */
+    text-align: left; /* Set text alignment to left for project sections */
+    text-indent: 0%; 
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-top: 40px;
+}
+section h1 { /* Centering h1 headings for all sections */
+    text-align: center; /* Center-align h1 headings */
+}
 /* General styles */
 body {
     font-family: Arial, sans-serif;
@@ -89,6 +104,6 @@ footer {
     background-color: #00798C; /* Dark Cyan */
     padding: 10px;
     text-align: center;
-    color: #FFF; /* White */
+    color: #FFF; 
     width: 100%;
 }
