@@ -16,6 +16,29 @@ function showSlides() {
     setTimeout(showSlides, 3000); // Change image every 3 seconds
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    const dropdowns = document.querySelectorAll('.has-submenu');
+
+    dropdowns.forEach((item) => {
+        item.addEventListener('mouseenter', function () {
+            this.querySelector('.submenu').style.display = 'block';
+        });
+
+        item.addEventListener('mouseleave', function () {
+            this.querySelector('.submenu').style.display = 'none';
+        });
+
+        const links = item.querySelectorAll('.submenu a');
+
+        links.forEach((link) => {
+            link.addEventListener('click', function (event) {
+                event.stopPropagation();
+            });
+        });
+    });
+});
+
+
 // Smooth scrolling effect for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -30,3 +53,5 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+
