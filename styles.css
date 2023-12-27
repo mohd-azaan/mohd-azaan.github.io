@@ -107,3 +107,38 @@ footer {
     color: #FFF; 
     width: 100%;
 }
+/* Reset default browser styles */
+/* ... (Your existing CSS code) */
+
+/* Media query for mobile devices */
+@media only screen and (max-width: 768px) {
+    /* Section styles */
+    section {
+        padding: 10px; /* Reduce padding for smaller screens */
+        margin-bottom: 10px; /* Adjust margin for smaller screens */
+    }
+
+    section h1 {
+        margin-bottom: 5px; /* Reduce margin for smaller screens */
+        font-size: 24px; /* Decrease font size for h1 headings */
+    }
+
+    .details {
+        margin-top: 10px; /* Adjust margin for smaller screens */
+    }
+
+    .profile-photo {
+        width: 150px; /* Reduce the size of the photo for smaller screens */
+    }
+
+    .certificate {
+        width: 250px; /* Reduce the size of certificates for smaller screens */
+        margin: 5px; /* Adjust margin for better spacing on smaller screens */
+    }
+
+    /* Footer styles */
+    footer {
+        padding: 5px; /* Reduce padding for smaller screens */
+        font-size: 14px; /* Decrease font size for footer text on smaller screens */
+    }
+}
