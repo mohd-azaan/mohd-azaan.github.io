@@ -14,7 +14,7 @@ section#project6 div{ /* Selecting project sections */
     text-indent: 0%; 
     padding-left: 40px;
     padding-right: 40px;
-    margin-top: 40px;
+    margin-top: 60px;
 }
 section h1 { /* Centering h1 headings for all sections */
     text-align: center; /* Center-align h1 headings */
