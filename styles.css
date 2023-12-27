@@ -111,7 +111,7 @@ footer {
 /* ... (Your existing CSS code) */
 
 /* Media query for mobile devices */
-@media only screen and (max-width: 768px) {
+@media only screen and (max-device-width: 165.3mm) and (max-device-height: 76.6mm){
     /* Section styles */
     section {
         padding: 10px; /* Reduce padding for smaller screens */
