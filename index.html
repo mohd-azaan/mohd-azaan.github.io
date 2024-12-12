@@ -19,6 +19,7 @@
             color: #fff;
             line-height: 1.6;
             overflow-x: hidden;
+            transition: opacity 1s ease;
         }
 
         .about-link {
@@ -259,7 +260,7 @@
 </head>
 <body>
     <!-- About Link -->
-    <a href="#" class="about-link">About</a>
+    <a href="about.html" class="about-link" id="aboutLink">About</a>
 
     <!-- Landing Section -->
     <div class="landing">
@@ -346,6 +347,7 @@
         const projects = document.querySelectorAll('.project');
         const fadeOverlay = document.querySelector('.fade-overlay');
         const landingSection = document.querySelector('.landing');
+        const aboutLink = document.getElementById('aboutLink');
 
         // Landing Content Animation
         window.addEventListener('load', () => {
@@ -400,6 +402,15 @@
             const opacity = Math.max(0, Math.min(1, (scrollPosition - fadeStart) / (fadeEnd - fadeStart)));
             fadeOverlay.style.opacity = opacity;
             landingSection.style.opacity = 1 - opacity;
+        });
+
+        // Handle About Link Click
+        aboutLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                window.location.href = 'about.html';
+            }, 1000);
         });
     </script>
 </body>
