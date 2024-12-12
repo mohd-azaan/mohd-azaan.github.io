@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mohammed Azaan - About</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>About - Mohammed Azaan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
+        /* General Reset */
         * {
             margin: 0;
             padding: 0;
@@ -17,9 +18,14 @@
             background-color: #000;
             color: #fff;
             line-height: 1.6;
-            overflow-x: hidden;
             opacity: 0;
+            overflow-x: hidden;
             transition: opacity 1s ease;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
         }
 
         .back-button {
@@ -27,17 +33,15 @@
             top: 20px;
             left: 20px;
             z-index: 100;
-            text-decoration: none;
-            color: #fff;
             font-size: 1.2rem;
-            border: 1px solid #fff;
             padding: 8px 15px;
             border-radius: 5px;
+            color: #fff;
             transition: all 0.3s ease;
         }
 
         .back-button:hover {
-            background-color: rgba(255,255,255,0.2);
+            background-color: rgba(255, 255, 255, 0.2);
             transform: scale(1.05);
         }
 
@@ -50,8 +54,6 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            z-index: -1;
-            transition: opacity 1s ease;
         }
 
         .about-video {
@@ -61,12 +63,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            filter: brightness(0.4);
             z-index: -1;
-            filter: brightness(0.6);
         }
 
         .profile-container {
-            position: relative;
             text-align: center;
             margin-bottom: 40px;
         }
@@ -81,42 +82,68 @@
         .name-title {
             margin-top: 20px;
             font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: #fff;
         }
 
         .details-section {
-            position: absolute;
-            bottom: 50px;
-            left: 50%;
-            transform: translateX(-50%);
             text-align: center;
-            font-size: 1.2rem;
-            color: #ccc;
-            z-index: 1;
             max-width: 800px;
+            padding: 0 20px;
         }
 
         .details-section h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
             color: #fff;
         }
 
         .details-section p {
-            margin: 10px 0;
-            font-size: 1rem;
+            font-size: 1.1rem;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        /* Contact Links Styling */
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .contact-links a {
+            font-size: 1.1rem;
+            padding: 10px 0;
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            color: #00aaff;
+            transform: scale(1.05);
+        }
+
+        .contact-links.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         @media (max-width: 768px) {
-            .details-section {
-                bottom: 20px;
+            .details-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .details-section p {
                 font-size: 1rem;
             }
 
-            .details-section h2 {
-                font-size: 1.2rem;
+            .contact-links a {
+                font-size: 1rem;
             }
         }
     </style>
@@ -135,26 +162,43 @@
             <div class="name-title">Mohammed Azaan</div>
         </div>
         <div class="details-section">
-            <h2>Creative Director at Media Monks, New York. Former Designer at Jam3, Unit9 and Fred&Farid. Educated at Gobelins Paris.</h2>
-            <p>Clients include Google, adidas, Sonos, Spotify, X, LuluLemon, Oculus, La Mer, Instagram, Meta, eBay, THX, Warner Bros and more.</p>
+            <h2>Creative Technologist. Educated at Gobelins Paris.</h2>
+            <p>Clients include Google, adidas, Sonos, Spotify, Meta, La Mer, eBay, THX, Warner Bros, and more.</p>
+            <div class="contact-links" id="contactLinks">
+                <a href="mailto:azaanpeshmam45@gmail.com">Email</a>
+                <a href="https://www.linkedin.com/in/mohammed-azaan-peshmam/" target="_blank">LinkedIn</a>
+                <a href="https://www.behance.net/mohammedazaan" target="_blank">Behance</a>
+                <a href="https://www.instagram.com/mohammed_azaan/" target="_blank">Instagram</a>
+            </div>
         </div>
     </div>
 
     <script>
-        // About Content Animation
+        // Fade-in animation on page load
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.body.style.opacity = 1;
             }, 500);
         });
 
-        // Handle Back Button Click
+        // Back button with fade effect
         document.getElementById('backButton').addEventListener('click', (event) => {
             event.preventDefault();
             document.body.style.opacity = 0;
             setTimeout(() => {
                 window.location.href = 'index.html';
             }, 1000);
+        });
+
+        // Contact details appear on scroll
+        const contactLinks = document.getElementById('contactLinks');
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            if (scrollPosition > 150) {
+                contactLinks.classList.add('visible');
+            } else {
+                contactLinks.classList.remove('visible');
+            }
         });
     </script>
 </body>
