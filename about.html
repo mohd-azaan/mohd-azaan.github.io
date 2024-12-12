@@ -123,7 +123,7 @@
 </head>
 <body>
     <!-- Back Button -->
-    <a href="index.html" class="back-button">Back</a>
+    <a href="index.html" class="back-button" id="backButton">Back</a>
 
     <!-- About Section -->
     <div class="about">
@@ -146,6 +146,15 @@
             setTimeout(() => {
                 document.body.style.opacity = 1;
             }, 500);
+        });
+
+        // Handle Back Button Click
+        document.getElementById('backButton').addEventListener('click', (event) => {
+            event.preventDefault();
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1000);
         });
     </script>
 </body>
