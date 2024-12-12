@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohammed Azaan - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lora:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -14,7 +14,7 @@
         }
 
         body {
-            font-family: 'Lora', serif;
+            font-family: 'Roboto', sans-serif;
             background-color: #000;
             color: #fff;
             line-height: 1.6;
@@ -34,7 +34,6 @@
             padding: 8px 15px;
             border-radius: 5px;
             transition: all 0.3s ease;
-            font-family: 'Lora', serif;
         }
 
         .about-link:hover {
@@ -110,6 +109,7 @@
         }
 
         .details-section {
+            font-family: 'lora', serif;
             position: absolute;
             bottom: 20px;
             right: 20px;
@@ -222,20 +222,10 @@
         }
 
         .project-details {
+            font-family: 'lora', serif;
             margin-top: 15px;
             color: #ccc;
             font-size: 1rem;
-        }
-
-        .project-details h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-
-        .project-details p {
-            margin: 10px 0;
         }
 
         @media (max-width: 768px) {
@@ -252,7 +242,7 @@
             .details-section {
                 align-items: center;
                 text-align: center;
-                bottom: 10px;
+                bottom: 50px;
                 right: 10px;
             }
         }
@@ -299,7 +289,6 @@
 
     <!-- Projects Section -->
     <div class="projects">
-        <h2 style="text-align: center; font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #fff; margin-bottom: 50px;">Web Development Projects</h2>
         <div class="project" id="project1">
             <div class="project-title">AITM College Website</div>
             <div class="project-carousel">
@@ -317,10 +306,11 @@
                     <button class="prev-btn">&lt;</button>
                     <button class="next-btn">&gt;</button>
                 </div>
-            </div>
-            <div class="project-details">
-                <p>A comprehensive college website designed to provide seamless information and enhance digital engagement for students and faculty. Implemented responsive design with modern UI/UX principles.</p>
-                <p>Inspiration: The inspiration behind this project was to create a user-friendly and informative platform that showcases the college's offerings and engages both current and prospective students.</p>
+                <p class="project-details">
+                    A comprehensive college website designed to provide seamless
+                    information and enhance digital engagement for students and faculty.
+                    Implemented responsive design with modern UI/UX principles.
+                </p>
             </div>
         </div>
 
@@ -344,10 +334,11 @@
                     <button class="prev-btn">&lt;</button>
                     <button class="next-btn">&gt;</button>
                 </div>
-            </div>
-            <div class="project-details">
-                <p>A professional business portfolio website showcasing UniTech's corporate identity, innovative services, and technological solutions. Developed with a focus on clean, modern design and user experience.</p>
-                <p>Inspiration: The inspiration behind this project was to create a sleek and professional online presence for UniTech, highlighting their expertise and innovative solutions in the tech industry.</p>
+                <p class="project-details">
+                    A professional business portfolio website showcasing UniTech's
+                    corporate identity, innovative services, and technological solutions.
+                    Developed with a focus on clean, modern design and user experience.
+                </p>
             </div>
         </div>
     </div>

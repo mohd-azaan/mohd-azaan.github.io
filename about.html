@@ -106,20 +106,28 @@
             margin-bottom: 30px;
         }
 
-        /* Contact Links Styling */
-        .contact-links {
+        .contact-section {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            gap: 15px;
+            height: 100vh;
+            background-color: #050505;
             opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.7s ease-out;
+            transform: translateY(100px);
+            transition: all 1s ease;
+            margin-top: 50px;
         }
 
-        .contact-links.visible {
+        .contact-section.show {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        .contact-links {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
         .contact-links a {
@@ -127,11 +135,58 @@
             padding: 10px 0;
             color: #fff;
             transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .contact-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: #00aaff;
+            transition: width 0.3s ease;
+        }
+
+        .contact-links a:hover::after {
+            width: 100%;
         }
 
         .contact-links a:hover {
             color: #00aaff;
             transform: scale(1.05);
+        }
+
+        .glance-image {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            z-index: 10;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .contact-links a:hover + .glance-image {
+            display: block;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: #fff;
+            font-size: 2rem;
+            opacity: 0.7;
         }
 
         @media (max-width: 768px) {
@@ -163,14 +218,25 @@
             <div class="name-title">Mohammed Azaan</div>
         </div>
         <div class="details-section">
-            <h2>Creative Technologist. Educated at Gobelins Paris.</h2>
-            <p>Clients include Google, adidas, Sonos, Spotify, Meta, La Mer, eBay, THX, Warner Bros, and more.</p>
-            <div class="contact-links" id="contactLinks">
-                <a href="mailto:azaanpeshmam45@gmail.com">Email</a>
-                <a href="https://www.linkedin.com/in/mohammed-azaan-peshmam/" target="_blank">LinkedIn</a>
-                <a href="https://www.behance.net/mohammedazaan" target="_blank">Behance</a>
-                <a href="https://www.instagram.com/mohammed_azaan/" target="_blank">Instagram</a>
-            </div>
+            <h2>Software Engineering Student at Anjuman Institute of Technology and Management</h2>
+            <p>I am currently pursuing my Bachelor's degree in Computer Science, with a passion for software development and a strong foundation in Python, C, and Java.</p>
+        </div>
+        <div class="scroll-indicator">↓</div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="contact-section" id="contactSection">
+        <div class="contact-links">
+            <a href="mailto:azaanpeshmam45@gmail.com">Email</a>
+            <div class="glance-image" style="background-image: url('images/email_glance.jpg');"></div>
+            <a href="https://www.linkedin.com/in/mohammed-azaan-peshmam/" target="_blank">LinkedIn</a>
+            <div class="glance-image" style="background-image: url('images/linkedin_glance.jpg');"></div>
+            <a href="https://www.behance.net/mohammedazaan" target="_blank">Behance</a>
+            <div class="glance-image" style="background-image: url('images/behance_glance.jpg');"></div>
+            <a href="https://www.instagram.com/mohammed_azaan/" target="_blank">Instagram</a>
+            <div class="glance-image" style="background-image: url('images/instagram_glance.jpg');"></div>
+            <a href="https://x.com" target="_blank">X</a>
+            <div class="glance-image" style="background-image: url('images/x_glance.jpg');"></div>
         </div>
     </div>
 
@@ -191,17 +257,23 @@
             }, 1000);
         });
 
-        // IntersectionObserver for contact links visibility
-        const contactLinks = document.getElementById('contactLinks');
+        // IntersectionObserver for contact section visibility
+        const contactSection = document.getElementById('contactSection');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    contactLinks.classList.add('visible');
+                    entry.target.classList.add('show');
                 }
             });
-        });
+        }, observerOptions);
 
-        observer.observe(document.querySelector('.details-section'));
+        observer.observe(contactSection);
     </script>
 </body>
 </html>
