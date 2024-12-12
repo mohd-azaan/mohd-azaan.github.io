@@ -85,6 +85,11 @@
             color: #fff;
         }
 
+        .landing-content p {
+            font-size: 1.5rem;
+            color: #ccc;
+        }
+
         .scroll-indicator {
             position: absolute;
             bottom: 30px;
@@ -100,6 +105,22 @@
             0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
             40% {transform: translateY(-20px);}
             60% {transform: translateY(-10px);}
+        }
+
+        .details-section {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: row;
+            font-size: 1rem;
+            color: #ccc;
+            z-index: 1;
+        }
+
+        .details-section div {
+            margin: 10px;
+            max-width: 300px;
         }
 
         .projects {
@@ -214,6 +235,13 @@
                 width: 100%;
                 margin-bottom: 20px;
             }
+
+            .details-section {
+                align-items: center;
+                text-align: center;
+                bottom: 10px;
+                right: 10px;
+            }
         }
 
         .fade-overlay {
@@ -243,6 +271,14 @@
             <p>Web & App Developer</p>
         </div>
         <div class="scroll-indicator">↓</div>
+        <div class="details-section">
+            <div>
+                Currently a student pursuing a degree in Computer Science. Passionate about web development and design.
+            </div>
+            <div>
+                Clients include various startups and small businesses. Focused on delivering high-quality, responsive web solutions.
+            </div>
+        </div>
     </div>
 
     <!-- Fade Overlay -->
@@ -359,9 +395,8 @@
         // Fade away landing section and fade in black background on scroll
         window.addEventListener('scroll', () => {
             const scrollPosition = window.scrollY;
-            const windowHeight = window.innerHeight;
-            const fadeStart = windowHeight / 2;
-            const fadeEnd = windowHeight;
+            const fadeStart = 20; // Fade starts after scrolling 20px
+            const fadeEnd = 100; // Fade ends after scrolling 100px
             const opacity = Math.max(0, Math.min(1, (scrollPosition - fadeStart) / (fadeEnd - fadeStart)));
             fadeOverlay.style.opacity = opacity;
             landingSection.style.opacity = 1 - opacity;
