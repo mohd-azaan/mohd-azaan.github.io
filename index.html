@@ -13,8 +13,6 @@
             box-sizing: border-box;
         }
 
-        
-
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #000;
@@ -186,8 +184,6 @@
             transform: translateY(0);
         }
 
-
-
         .project-year {
             position: absolute;
             top: 20px;
@@ -342,13 +338,18 @@
         }
 
         @media (max-width: 768px) {
-            .project,
-            .project:nth-child(even) {
+            .project {
                 flex-direction: column;
                 text-align: center;
             }
 
+            .upper {
+                flex-direction: column;
+                align-items: center;
+            }
+
             .project-title-container,
+            .project-title-container-right,
             .project-carousel {
                 width: 100%;
                 margin-bottom: 20px;
@@ -444,7 +445,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="project-details">
                     <div class="project-details-role">
                         <p>INTERACTIVE INSTALLATION</p>
@@ -477,7 +478,6 @@
 
             <div class="project" id="project2">
                 <div class="upper">
-                    
                     <div class="project-carousel">
                         <div class="carousel">
                             <div class="carousel-inner">
@@ -502,7 +502,7 @@
                         <div class="project-title">UniTech Business Portfolio</div>
                     </div>
                 </div>
-                
+
                 <div class="project-details">
                     <div class="project-details-role">
                         <p>INTERACTIVE INSTALLATION</p>
@@ -550,7 +550,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="project-details">
                     <div class="project-details-role">
                         <p>INTERACTIVE INSTALLATION</p>
@@ -573,7 +573,6 @@
             </div>
         </div>
     </div>
-
 
     <script>
         // Scroll Animations
