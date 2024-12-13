@@ -18,7 +18,6 @@
             background-color: #000;
             color: #fff;
             line-height: 1.6;
-            opacity: 0;
             overflow-x: hidden;
             transition: opacity 1s ease;
         }
@@ -46,7 +45,9 @@
         }
 
         .about {
-            position: relative;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100vh;
             display: flex;
@@ -54,6 +55,8 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
+            z-index: 1;
+            transition: opacity 1s ease;
         }
 
         .about-video {
@@ -111,11 +114,11 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #050505;
+            background-color: transparent;
             opacity: 0;
             transform: translateY(100px);
             transition: all 1s ease;
-            margin-top: 50px;
+            margin-top: 100vh; /* Ensure content appears below the landing section */
         }
 
         .contact-section.show {
@@ -128,6 +131,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+            position: relative;
         }
 
         .contact-links a {
@@ -136,6 +140,7 @@
             color: #fff;
             transition: all 0.3s ease;
             position: relative;
+            z-index: 1;
         }
 
         .contact-links a::after {
@@ -159,23 +164,22 @@
             transform: scale(1.05);
         }
 
-        .glance-image {
+        .glance-image-container {
             display: none;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 2px solid #fff;
-            z-index: 10;
-            background-size: cover;
-            background-position: center;
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin-top: 10px;
+            transition: opacity 0.3s ease;
         }
 
-        .contact-links a:hover + .glance-image {
+        .contact-links a:hover + .glance-image-container {
             display: block;
+        }
+
+        .glance-image-container img {
+            width: 100%;
+            border-radius: 10px;
         }
 
         .scroll-indicator {
@@ -187,6 +191,12 @@
             color: #fff;
             font-size: 2rem;
             opacity: 0.7;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
         }
 
         @media (max-width: 768px) {
@@ -201,6 +211,18 @@
             .contact-links a {
                 font-size: 1rem;
             }
+        }
+
+        .fade-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #000;
+            opacity: 0;
+            transition: opacity 1s ease;
+            z-index: -2;
         }
     </style>
 </head>
@@ -224,19 +246,42 @@
         <div class="scroll-indicator">↓</div>
     </div>
 
+    <!-- Fade Overlay -->
+    <div class="fade-overlay"></div>
+
     <!-- Contact Section -->
     <div class="contact-section" id="contactSection">
         <div class="contact-links">
             <a href="mailto:azaanpeshmam45@gmail.com">Email</a>
-            <div class="glance-image" style="background-image: url('images/email_glance.jpg');"></div>
+            <div class="glance-image-container">
+                <a href="mailto:azaanpeshmam45@gmail.com">
+                    <img src="images/email_glance.jpg" alt="Email Glance">
+                </a>
+            </div>
             <a href="https://www.linkedin.com/in/mohammed-azaan-peshmam/" target="_blank">LinkedIn</a>
-            <div class="glance-image" style="background-image: url('images/linkedin_glance.jpg');"></div>
+            <div class="glance-image-container">
+                <a href="https://www.linkedin.com/in/mohammed-azaan-peshmam/" target="_blank">
+                    <img src="images/linkedin_glance.jpg" alt="LinkedIn Glance">
+                </a>
+            </div>
             <a href="https://www.behance.net/mohammedazaan" target="_blank">Behance</a>
-            <div class="glance-image" style="background-image: url('images/behance_glance.jpg');"></div>
+            <div class="glance-image-container">
+                <a href="https://www.behance.net/mohammedazaan" target="_blank">
+                    <img src="images/behance_glance.jpg" alt="Behance Glance">
+                </a>
+            </div>
             <a href="https://www.instagram.com/mohammed_azaan/" target="_blank">Instagram</a>
-            <div class="glance-image" style="background-image: url('images/instagram_glance.jpg');"></div>
+            <div class="glance-image-container">
+                <a href="https://www.instagram.com/mohammed_azaan/" target="_blank">
+                    <img src="images/socials/insta_profile.png" alt="Instagram Glance">
+                </a>
+            </div>
             <a href="https://x.com" target="_blank">X</a>
-            <div class="glance-image" style="background-image: url('images/x_glance.jpg');"></div>
+            <div class="glance-image-container">
+                <a href="https://x.com" target="_blank">
+                    <img src="images/x_glance.jpg" alt="X Glance">
+                </a>
+            </div>
         </div>
     </div>
 
@@ -274,6 +319,18 @@
         }, observerOptions);
 
         observer.observe(contactSection);
+
+        // Fade away landing section and fade in black background on scroll
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            const fadeStart = 50; // Fade starts after scrolling 50px
+            const fadeEnd = 150; // Fade ends after scrolling 150px
+            const opacity = Math.max(0, Math.min(1, (scrollPosition - fadeStart) / (fadeEnd - fadeStart)));
+            const fadeOverlay = document.querySelector('.fade-overlay');
+            const aboutSection = document.querySelector('.about');
+            fadeOverlay.style.opacity = opacity;
+            aboutSection.style.opacity = 1 - opacity;
+        });
     </script>
 </body>
 </html>
