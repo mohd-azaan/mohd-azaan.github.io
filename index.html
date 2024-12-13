@@ -354,7 +354,6 @@
             .project-title-container-right,
             .project-carousel {
                 width: 100%;
-                margin-bottom: 20px;
             }
 
             .project-details {
@@ -374,6 +373,23 @@
                 text-align: center;
                 bottom: 50px;
                 right: 10px;
+            }
+            .mobile {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+
+            .project-year{
+                text-align: center;
+                left: 50%;
+                position: static;
+                margin-top: 10px;
+                margin-bottom: 30px;
+            }
+            .project-year-right{
+                position: static;
+                text-align: center;
+                right: 50%;
             }
         }
 
@@ -426,9 +442,11 @@
         <div>
             <div class="project" id="project1">
                 <div class="upper">
-                    <div class="project-year">2023</div>
-                    <div class="project-title-container">
-                        <div class="project-title">AITM College Website</div>
+                    <div class="mobile">
+                        <div class="project-year">2023</div>
+                        <div class="project-title-container">
+                            <div class="project-title">AITM College Website</div>
+                        </div>
                     </div>
                     <div class="project-carousel">
                         <div class="carousel">
@@ -479,7 +497,13 @@
             </div>
 
             <div class="project" id="project2">
-                <div class="upper">
+                <div class="upper-even">
+                    <div class="mobile">
+                        <div class="project-year-right">2022</div>
+                        <div class="project-title-container-right">
+                            <div class="project-title">UniTech Business Portfolio</div>
+                        </div>
+                    </div>
                     <div class="project-carousel">
                         <div class="carousel">
                             <div class="carousel-inner">
@@ -499,10 +523,8 @@
                             <button class="next-btn">&gt;</button>
                         </div>
                     </div>
-                    <div class="project-year-right">2022</div>
-                    <div class="project-title-container-right">
-                        <div class="project-title">UniTech Business Portfolio</div>
-                    </div>
+                    
+                    
                 </div>
 
                 <div class="project-details">
@@ -531,10 +553,13 @@
         <div>
             <div class="project" id="project1">
                 <div class="upper">
-                    <div class="project-year">2021</div>
-                    <div class="project-title-container">
-                        <div class="project-title">VoteEase: Digital Voting Software</div>
+                    <div class="mobile">
+                        <div class="project-year">2021</div>
+                        <div class="project-title-container">
+                            <div class="project-title">VoteEase: Digital Voting Software</div>
+                        </div>
                     </div>
+                    
                     <div class="project-carousel">
                         <div class="carousel">
                             <div class="carousel-inner">
