@@ -370,12 +370,26 @@
                 text-align: center;
             }
 
-            .details-section {
+            .details-section-1 {
                 align-items: center;
-                text-align: center;
+                text-align: start;
                 bottom: 50px;
                 right: 10px;
             }
+            .details-section-2 {
+                align-items: center;
+                text-align: end;
+                bottom: 50px;
+                right: 10px;
+            }
+            .scroll-indicator{
+                margin-bottom: 30px;
+                left: 46%;
+            }
+            .details-section {
+                margin-bottom: 50px;
+            }
+
             .mobile {
                 display: flex;
                 flex-direction: column-reverse;
@@ -392,7 +406,10 @@
                 position: static;
                 text-align: center;
                 right: 50%;
+                margin-top: 10px;
+                margin-bottom: 30px;
             }
+            
         }
 
         .fade-overlay {
@@ -426,10 +443,10 @@
         </div>
         <div class="scroll-indicator">↓</div>
         <div class="details-section">
-            <div>
+            <div class="details-section-1">
                 Currently a student pursuing a degree in Computer Science. Passionate about web development and design.
             </div>
-            <div>
+            <div class="details-section-2">
                 Clients include various startups and small businesses. Focused on delivering high-quality, responsive web solutions.
             </div>
         </div>
