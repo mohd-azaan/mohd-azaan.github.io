@@ -13,6 +13,8 @@
             box-sizing: border-box;
         }
 
+        
+
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #000;
@@ -23,22 +25,39 @@
         }
 
         .about-link {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 100;
             text-decoration: none;
             color: #fff;
             font-size: 1.2rem;
-            border: 1px solid #fff;
             padding: 8px 15px;
             border-radius: 5px;
             transition: all 0.3s ease;
         }
 
+        #Namelink {
+            font-family: 'Playfair Display', serif;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        #aboutLink {
+            font-family: 'Playfair Display', serif;
+        }
+
         .about-link:hover {
-            background-color: rgba(255,255,255,0.2);
+            background-color: rgba(255, 255, 255, 0.2);
             transform: scale(1.05);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 10px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            z-index: 1000;
         }
 
         .landing {
@@ -103,9 +122,15 @@
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-20px);}
-            60% {transform: translateY(-10px);}
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
         }
 
         .details-section {
@@ -126,16 +151,17 @@
         }
 
         .projects {
-            padding: 50px 10%;
-            margin-top: 100vh; /* Ensure content appears below the landing section */
+            padding: 40px;
+            margin-top: 100vh;
+            /* Ensure content appears below the landing section */
             position: relative;
             z-index: 1;
         }
 
         .project {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            flex-direction: column;
+            align-items: flex-start;
             margin-bottom: 100px;
             opacity: 0;
             transform: translateY(100px);
@@ -143,25 +169,61 @@
             background: transparent;
         }
 
+        .project:last-child {
+            margin-bottom: 50px;
+        }
+
         .project.show {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .project:nth-child(even) {
-            flex-direction: row-reverse;
+
+
+        .project-year {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+
+        .project-year-right {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+
+        .project-title-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 30%;
+        }
+
+        .project-title-container-right {
+            display: flex;
+            text-align: end;
+            flex-direction: column;
+            justify-content: center;
+            width: 30%;
         }
 
         .project-title {
-            width: 40%;
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
             color: #fff;
         }
 
         .project-carousel {
-            width: 50%;
+            width: 70%;
             position: relative;
+        }
+
+        .upper {
+            display: flex;
         }
 
         .carousel {
@@ -182,7 +244,7 @@
 
         .carousel img {
             width: 100%;
-            border-radius: 10px;
+            padding-inline: 10px;
             object-fit: cover;
         }
 
@@ -202,41 +264,98 @@
         }
 
         .carousel-nav button {
-            background: rgba(255,255,255,0.3);
+            background: rgba(255, 255, 255, 0.3);
             border: none;
             color: #fff;
             font-size: 3rem;
             cursor: pointer;
             transition: all 0.3s ease;
             border-radius: 50%;
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .carousel-nav button:hover {
-            background: rgba(255,255,255,0.5);
+            background: rgba(255, 255, 255, 0.5);
             transform: scale(1.1);
         }
 
         .project-details {
-            font-family: 'lora', serif;
-            margin-top: 15px;
-            color: #ccc;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .project-details-role,
+        .project-details-description,
+        .project-details-links {
+            width: 30%;
+            padding: 20px;
+        }
+
+        .project-details-role {
+            font-family: 'Roboto', sans-serif;
             font-size: 1rem;
+            color: #ccc;
+        }
+
+        .project-details-description {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        .project-details-links {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+            color: #ccc;
+            text-align: right;
+        }
+
+        .project-details-links p {
+            margin-bottom: 10px;
+        }
+
+        .project-details-links a {
+            display: block;
+            margin-bottom: 5px;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .project-details-links a:hover {
+            color: #fff;
         }
 
         @media (max-width: 768px) {
-            .project, .project:nth-child(even) {
+            .project,
+            .project:nth-child(even) {
                 flex-direction: column;
                 text-align: center;
             }
 
-            .project-title, .project-carousel {
+            .project-title-container,
+            .project-carousel {
                 width: 100%;
                 margin-bottom: 20px;
+            }
+
+            .project-details {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .project-details-role,
+            .project-details-description,
+            .project-details-links {
+                width: 100%;
+                text-align: center;
             }
 
             .details-section {
@@ -261,8 +380,11 @@
     </style>
 </head>
 <body>
-    <!-- About Link -->
-    <a href="about.html" class="about-link" id="aboutLink">About</a>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="index.html" class="about-link" id="Namelink">Mohammed Azaan</a>
+        <a href="about.html" class="about-link" id="aboutLink">About</a>
+    </div>
 
     <!-- Landing Section -->
     <div class="landing">
@@ -288,61 +410,162 @@
     <div class="fade-overlay"></div>
 
     <!-- Projects Section -->
-    
     <div class="projects">
-        <div class="project" id="project1">
-            <div class="project-title">AITM College Website</div>
-            <div class="project-carousel">
-                <div class="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item">
-                            <img src="images/project1/image copy.png" alt="Project 1 Image 1">
+        <h2>Web Development Projects</h2>
+        <div>
+            <div class="project" id="project1">
+                <div class="upper">
+                    <div class="project-year">2023</div>
+                    <div class="project-title-container">
+                        <div class="project-title">AITM College Website</div>
+                    </div>
+                    <div class="project-carousel">
+                        <div class="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item">
+                                    <img src="images/project1/image copy.png" alt="Project 1 Image 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="images/project1/image.png" alt="Project 1 Image 2">
+                                </div>
+                            </div>
                         </div>
-                        <div class="carousel-item">
-                            <img src="images/project1/image.png" alt="Project 1 Image 2">
+                        <div class="carousel-nav">
+                            <button class="prev-btn">&lt;</button>
+                            <button class="next-btn">&gt;</button>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-nav">
-                    <button class="prev-btn">&lt;</button>
-                    <button class="next-btn">&gt;</button>
+                
+                <div class="project-details">
+                    <div class="project-details-role">
+                        <p>INTERACTIVE INSTALLATION</p>
+                        <p>CREATIVE DIRECTOR</p>
+                    </div>
+                    <div class="project-details-description">
+                        <p>
+                            At CES 2024, we played a pivotal role in showcasing Google's Android mobile operating system by creating a unique 18,000-square-foot interactive space.
+                        </p>
+                        <p>
+                            This space was highlighted by an impressive 80-foot canopy and featured 15 analog-inspired interactive stations, designed to allow attendees to explore Android's latest features in an environment that reflected Google's open and connected philosophy.
+                        </p>
+                        <p>
+                            Moving away from Google's typical minimalist presence, we adopted a more engaging "choose your own adventure" style, transforming the exhibit into a modern-day "Visitor Attraction Center."
+                        </p>
+                        <p>
+                            Here, attendees could engage with the technologies that interested them the most. Additionally, we implemented skeuomorphic design elements to make the innovative features approachable, exemplified by a postcard-making station modeled after a mail collection box, which helped make the technology both accessible and familiar to users.
+                        </p>
+                    </div>
+                    <div class="project-details-links">
+                        <p>Press</p>
+                        <a href="https://www.google.com/blog" target="_blank">Google Blog</a>
+                        <a href="https://www.youtube.com/android" target="_blank">Android Youtube</a>
+                        <a href="https://www.youtube.com/engadget" target="_blank">Engadget Youtube</a>
+                        <a href="https://www.androidpolice.com" target="_blank">Android Police</a>
+                        <a href="https://www.exhibitoronline.com/magazine" target="_blank">Exhibitor Magazine</a>
+                    </div>
                 </div>
-                <p class="project-details">
-                    A comprehensive college website designed to provide seamless
-                    information and enhance digital engagement for students and faculty.
-                    Implemented responsive design with modern UI/UX principles.
-                </p>
+            </div>
+
+            <div class="project" id="project2">
+                <div class="upper">
+                    
+                    <div class="project-carousel">
+                        <div class="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item">
+                                    <img src="images/project2/image copy.png" alt="Project 2 Image 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="images/project2/image copy 2.png" alt="Project 2 Image 2">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="images/project2/image.png" alt="Project 2 Image 3">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-nav">
+                            <button class="prev-btn">&lt;</button>
+                            <button class="next-btn">&gt;</button>
+                        </div>
+                    </div>
+                    <div class="project-year-right">2022</div>
+                    <div class="project-title-container-right">
+                        <div class="project-title">UniTech Business Portfolio</div>
+                    </div>
+                </div>
+                
+                <div class="project-details">
+                    <div class="project-details-role">
+                        <p>INTERACTIVE INSTALLATION</p>
+                        <p>CREATIVE DIRECTOR</p>
+                    </div>
+                    <div class="project-details-description">
+                        <p>
+                            A professional business portfolio website showcasing UniTech's corporate identity, innovative services, and technological solutions. Developed with a focus on clean, modern design and user experience.
+                        </p>
+                    </div>
+                    <div class="project-details-links">
+                        <p>Press</p>
+                        <a href="https://www.google.com/blog" target="_blank">Google Blog</a>
+                        <a href="https://www.youtube.com/android" target="_blank">Android Youtube</a>
+                        <a href="https://www.youtube.com/engadget" target="_blank">Engadget Youtube</a>
+                        <a href="https://www.androidpolice.com" target="_blank">Android Police</a>
+                        <a href="https://www.exhibitoronline.com/magazine" target="_blank">Exhibitor Magazine</a>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="project" id="project2">
-            <div class="project-title">UniTech Business Portfolio</div>
-            <div class="project-carousel">
-                <div class="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item">
-                            <img src="images/project2/image copy.png" alt="Project 2 Image 1">
+        <h2>Software Development Projects</h2>
+        <div>
+            <div class="project" id="project1">
+                <div class="upper">
+                    <div class="project-year">2021</div>
+                    <div class="project-title-container">
+                        <div class="project-title">VoteEase: Digital Voting Software</div>
+                    </div>
+                    <div class="project-carousel">
+                        <div class="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item">
+                                    <img src="images/voting/shall.jpeg" alt="Project 1 Image 1">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="" alt="Project 1 Image 2">
+                                </div>
+                            </div>
                         </div>
-                        <div class="carousel-item">
-                            <img src="images/project2/image copy 2.png" alt="Project 2 Image 2">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="images/project2/image.png" alt="Project 2 Image 3">
+                        <div class="carousel-nav">
+                            <button class="prev-btn">&lt;</button>
+                            <button class="next-btn">&gt;</button>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-nav">
-                    <button class="prev-btn">&lt;</button>
-                    <button class="next-btn">&gt;</button>
+                
+                <div class="project-details">
+                    <div class="project-details-role">
+                        <p>INTERACTIVE INSTALLATION</p>
+                        <p>CREATIVE DIRECTOR</p>
+                    </div>
+                    <div class="project-details-description">
+                        <p>
+                            "VoteEase" revolutionized elections for our college governing council, ensuring a smooth voting process for over 500 voters with results announced in just 20 minutes. Adopted by BMJD and YMSA Sports Club, the software handled over 1,200 voters, eliminating invalid votes and offering unparalleled efficiency. Built with Python's custom Tkinter framework, it marked a new era of trust and digital transformation.
+                        </p>
+                    </div>
+                    <div class="project-details-links">
+                        <p>Press</p>
+                        <a href="https://www.google.com/blog" target="_blank">Google Blog</a>
+                        <a href="https://www.youtube.com/android" target="_blank">Android Youtube</a>
+                        <a href="https://www.youtube.com/engadget" target="_blank">Engadget Youtube</a>
+                        <a href="https://www.androidpolice.com" target="_blank">Android Police</a>
+                        <a href="https://www.exhibitoronline.com/magazine" target="_blank">Exhibitor Magazine</a>
+                    </div>
                 </div>
-                <p class="project-details">
-                    A professional business portfolio website showcasing UniTech's
-                    corporate identity, innovative services, and technological solutions.
-                    Developed with a focus on clean, modern design and user experience.
-                </p>
             </div>
         </div>
     </div>
+
 
     <script>
         // Scroll Animations
@@ -351,6 +574,7 @@
         const fadeOverlay = document.querySelector('.fade-overlay');
         const landingSection = document.querySelector('.landing');
         const aboutLink = document.getElementById('aboutLink');
+        const nameLink = document.getElementById('Namelink');
 
         // Landing Content Animation
         window.addEventListener('load', () => {
@@ -405,6 +629,7 @@
             const opacity = Math.max(0, Math.min(1, (scrollPosition - fadeStart) / (fadeEnd - fadeStart)));
             fadeOverlay.style.opacity = opacity;
             landingSection.style.opacity = 1 - opacity;
+            nameLink.style.opacity = opacity;
         });
 
         // Handle About Link Click
