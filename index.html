@@ -31,12 +31,17 @@
             transition: all 0.3s ease;
         }
 
+        .about-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
         h2 {
             text-align: center;
             margin-top: 200px;
             margin-bottom: 100px;
             font-size: xxx-large;
-            font-family: dancing;
+            font-family: 'Playfair Display', serif;
         }
 
         #Namelink {
@@ -47,11 +52,6 @@
 
         #aboutLink {
             font-family: 'Playfair Display', serif;
-        }
-
-        .about-link:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: scale(1.05);
         }
 
         .navbar {
@@ -140,7 +140,7 @@
         }
 
         .details-section {
-            font-family: 'lora', serif;
+            font-family: 'Lora', serif;
             position: absolute;
             bottom: 20px;
             right: 20px;
@@ -402,7 +402,7 @@
         </video>
         <div class="landing-content">
             <h1>Mohammed Azaan</h1>
-            <p>Web & App Developer</p>
+            <p>Software Engineer</p>
         </div>
         <div class="scroll-indicator">↓</div>
         <div class="details-section">
@@ -593,6 +593,7 @@
         window.addEventListener('load', () => {
             setTimeout(() => {
                 landingContent.classList.add('show');
+                nameLink.style.opacity = 1;
             }, 500);
         });
 
@@ -652,6 +653,12 @@
             setTimeout(() => {
                 window.location.href = 'about.html';
             }, 1000);
+        });
+
+        // Handle Name Link Click
+        nameLink.addEventListener('click', (event) => {
+            event.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
