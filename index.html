@@ -799,7 +799,7 @@
         const nameLink = document.getElementById('Namelink');
         const contactSection = document.querySelector('.contact-section');
         const h2Elements = document.querySelectorAll('h2');
-
+        nameLink.style.opacity = 0;
         // Landing Content Animation
         window.addEventListener('load', () => {
             setTimeout(() => {
@@ -807,7 +807,6 @@
                 nameLink.style.opacity = 1;
             }, 500);
         });
-
         // Projects Scroll Animation
         const observerOptions = {
             root: null,
