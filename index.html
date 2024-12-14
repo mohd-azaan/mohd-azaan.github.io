@@ -60,6 +60,14 @@
             margin-bottom: 100px;
             font-size: xxx-large;
             font-family: 'Playfair Display', serif;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        h2.show {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         #Namelink {
@@ -483,6 +491,7 @@
             font-family: 'Playfair Display', serif;
             font-size: 4rem;
             color: #fff;
+            line-height: 1;
         }
 
         .profile-container {
@@ -507,6 +516,7 @@
             height: 250px;
             border-radius: 50%;
             border: 2px solid #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .contact-section {
@@ -723,7 +733,7 @@
             <div class="project" id="project1">
                 <div class="upper">
                     <div class="mobile">
-                        <div class="project-year">2021</div>
+                        <div class="project-year">2024</div>
                         <div class="project-title-container">
                             <div class="project-title">VoteEase: Digital Voting Software</div>
                         </div>
@@ -755,8 +765,8 @@
 
                 <div class="project-details">
                     <div class="project-details-role">
-                        <p>INTERACTIVE INSTALLATION</p>
-                        <p>CREATIVE DIRECTOR</p>
+                        <p><b>Lead Developer</b></p>
+                        <p></p>
                     </div>
                     <div class="project-details-description">
                         <p>
@@ -795,7 +805,8 @@
         const landingSection = document.querySelector('.landing');
         const aboutLink = document.getElementById('aboutLink');
         const nameLink = document.getElementById('Namelink');
-        const contactSection = document.getElementById('contactSection');
+        const contactSection = document.querySelector('.contact-section');
+        const h2Elements = document.querySelectorAll('h2');
 
         // Landing Content Animation
         window.addEventListener('load', () => {
@@ -822,6 +833,10 @@
 
         projects.forEach(project => {
             observer.observe(project);
+        });
+
+        h2Elements.forEach(h2 => {
+            observer.observe(h2);
         });
 
         // Carousel Navigation
