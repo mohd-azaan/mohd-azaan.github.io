@@ -384,6 +384,18 @@
             color: #fff;
         }
 
+        .read-more {
+            color: #00aaff;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        .read-more:hover {
+            color: #fff;
+        }
+
         @media (max-width: 768px) {
             .project {
                 flex-direction: column;
@@ -490,7 +502,7 @@
         .name-title {
             margin-top: -80px;
             font-family: "Slackey", sans-serif;
-            font-size: 3rem;    
+            font-size: 3rem;
             color: #fff;
             line-height: 1;
         }
@@ -649,7 +661,7 @@
                         </div>
                     </div>
                 </div>
-
+    
                 <div class="project-details">
                     <div class="project-details-role">
                         <p><b>Backend Developer</b></p>
@@ -657,20 +669,21 @@
                     </div>
                     <div class="project-details-description">
                         <p>
-                            At CES 2024, we played a pivotal role in showcasing Google's Android mobile operating system by creating a unique 18,000-square-foot interactive space.
-                        </p><br>
-                        <p>
-                            This space was highlighted by an impressive 80-foot canopy and featured 15 analog-inspired interactive stations, designed to allow attendees to explore Android's latest features in an environment that reflected Google's open and connected philosophy.
+                            The AITM College Website project involved creating a comprehensive and user-friendly online platform for the college. The website was designed to provide essential information to students, faculty, and visitors, including academic programs, campus facilities, and important announcements.
                         </p>
-                        
+                        <p id="read-more-content-1" style="display: none;">
+                            One of the key features of the website is the interactive course catalog, which allows students to browse through various courses offered by the college. Each course listing includes detailed descriptions, prerequisites, and contact information for the course instructors.
+                        </p>
+                        <p id="read-more-content-2" style="display: none;">
+                            The website also includes a dedicated section for campus life, highlighting student activities, clubs, and events. This section aims to foster a sense of community among students and encourage participation in extracurricular activities.
+                        </p>
+                        <p id="read-more-content-3" style="display: none;">
+                            To ensure accessibility, the website was designed to be responsive and compatible with various devices, including desktops, tablets, and smartphones. Additionally, the website incorporates SEO best practices to improve its visibility on search engines.
+                        </p>
+                        <span class="read-more" id="read-more-1">Read More</span>
                     </div>
-                    <div class="project-details-description">
-                        <p>
-                            Moving away from Google's typical minimalist presence, we adopted a more engaging "choose your own adventure" style, transforming the exhibit into a modern-day "Visitor Attraction Center."
-                        </p>
-                        <p><br>
-                            Here, attendees could engage with the technologies that interested them the most. Additionally, we implemented skeuomorphic design elements to make the innovative features approachable, exemplified by a postcard-making station modeled after a mail collection box, which helped make the technology both accessible and familiar to users.
-                        </p>
+                    <div class="project-details-links">
+
                     </div>
                 </div>
             </div>
@@ -715,7 +728,7 @@
                         </p>
                     </div>
                     <div class="project-details-links">
-                        
+
                     </div>
                 </div>
             </div>
@@ -723,7 +736,7 @@
 
         <h2>Software Development Projects</h2>
         <div>
-            <div class="project" id="project1">
+            <div class="project" id="project3">
                 <div class="upper">
                     <div class="mobile">
                         <div class="project-year">2024</div>
@@ -764,13 +777,14 @@
                     <div class="project-details-description">
                         <p>
                             "VoteEase" revolutionized elections for our college governing council, ensuring a smooth voting process for over 500 voters with results announced in just 20 minutes.
-                        </p><br>
-                        <p>
+                        </p>
+                        <p id="read-more-content-4" style="display: none;">
                             Adopted by BMJD and YMSA Sports Club, the software handled over 1,200 voters, eliminating invalid votes and offering unparalleled efficiency.
-                        </p><br>
-                        <p>
+                        </p>
+                        <p id="read-more-content-5" style="display: none;">
                             Built with Python's custom Tkinter framework, it marked a new era of trust and digital transformation.
                         </p>
+                        <span class="read-more" id="read-more-2">Read More</span>
                     </div>
                     <div class="project-details-links">
                         <h3>Press</h3>
@@ -803,6 +817,7 @@
         const contactSection = document.querySelector('.contact-section');
         const h2Elements = document.querySelectorAll('h2');
         nameLink.style.opacity = 0;
+
         // Landing Content Animation
         window.addEventListener('load', () => {
             setTimeout(() => {
@@ -810,6 +825,7 @@
                 nameLink.style.opacity = 1;
             }, 500);
         });
+
         // Projects Scroll Animation
         const observerOptions = {
             root: null,
@@ -880,6 +896,29 @@
 
         // Contact Section Scroll Animation
         observer.observe(contactSection);
+
+        // Read More Functionality
+        document.querySelectorAll('.read-more').forEach(button => {
+            button.addEventListener('click', () => {
+                const contentIds = [
+                    ['read-more-1', ['read-more-content-1', 'read-more-content-2', 'read-more-content-3']],
+                    ['read-more-2', ['read-more-content-4', 'read-more-content-5']]
+                ];
+
+                contentIds.forEach(pair => {
+                    const [buttonId, contentIds] = pair;
+                    if (button.id === buttonId) {
+                        contentIds.forEach(id => {
+                            const content = document.getElementById(id);
+                            if (content) {
+                                content.style.display = content.style.display === 'none' ? 'block' : 'none';
+                            }
+                        });
+                        button.textContent = button.textContent === 'Read More' ? 'Read Less' : 'Read More';
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
