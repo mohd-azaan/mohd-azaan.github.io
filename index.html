@@ -8,8 +8,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
     <style>
+        /* Reset and base styles */
         * {
             margin: 0;
             padding: 0;
@@ -38,18 +40,20 @@
             background-color: rgba(255, 255, 255, 0.2);
             transform: scale(1.05);
         }
-        .mobile{
+
+        .mobile {
             display: flex;
             text-align: start;
             width: 30%;
         }
 
-        .mobile-right{
+        .mobile-right {
             justify-content: end;
             display: flex;
             text-align: end;
             width: 30%;
         }
+
         h2 {
             text-align: center;
             margin-top: 200px;
@@ -122,21 +126,23 @@
             font-family: 'Exo 2', sans-serif;
             font-size: 4rem;
             color: #fff;
-            line-height: 1; /* Adjust the line height as needed */
+            line-height: 1;
         }
+
         .details-section-1 {
             align-items: center;
             text-align: start;
             bottom: 50px;
             right: 10px;
         }
+
         .details-section-2 {
             align-items: center;
             text-align: end;
             bottom: 50px;
             right: 10px;
         }
-        
+
         .landing-content p {
             font-size: 1.5rem;
             color: #ccc;
@@ -180,14 +186,15 @@
             margin: 15px;
             max-width: 300px;
         }
-        .upper-even{
+
+        .upper-even {
             display: flex;
             flex-direction: row-reverse;
         }
+
         .projects {
             padding: 40px;
             margin-top: 100vh;
-            /* Ensure content appears below the landing section */
             position: relative;
             z-index: 1;
         }
@@ -342,7 +349,6 @@
             font-family: 'Roboto', sans-serif;
             font-size: 1rem;
             color: #ccc;
-            
         }
 
         .project-details-links {
@@ -374,34 +380,42 @@
                 flex-direction: column;
                 text-align: center;
             }
-            .mobile-right{
+
+            .mobile-right {
                 text-align: center;
                 width: 100%;
                 display: flex;
                 flex-direction: column-reverse;
             }
-            .project-title-container{
+
+            .project-title-container {
                 text-align: center;
             }
-            .project-title-container-right{
+
+            .project-title-container-right {
                 text-align: center;
             }
+
             .upper {
                 flex-direction: column;
                 align-items: center;
             }
-            .upper-even{
+
+            .upper-even {
                 display: flex;
                 flex-direction: column;
             }
+
             .project-title-container,
             .project-title-container-right,
             .project-carousel {
                 width: 100%;
             }
-            .projects{
+
+            .projects {
                 padding: 10px;
             }
+
             .project-details {
                 flex-direction: column;
                 align-items: center;
@@ -420,16 +434,19 @@
                 bottom: 50px;
                 right: 10px;
             }
+
             .details-section-2 {
                 align-items: center;
                 text-align: end;
                 bottom: 50px;
                 right: 10px;
             }
-            .scroll-indicator{
+
+            .scroll-indicator {
                 margin-bottom: 30px;
                 left: 48%;
             }
+
             .details-section {
                 margin-bottom: 50px;
             }
@@ -440,23 +457,37 @@
                 width: 100%;
             }
 
-            .project-year{
+            .project-year {
                 text-align: center;
                 left: 50%;
                 position: static;
                 margin-top: 10px;
                 margin-bottom: 30px;
             }
-            .project-year-right{
+
+            .project-year-right {
                 position: static;
                 text-align: center;
                 right: 50%;
                 margin-top: 10px;
                 margin-bottom: 30px;
             }
-            .project-details-description{
+
+            .project-details-description {
                 text-align: start;
             }
+        }
+
+        .name-title {
+            margin-top: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: #fff;
+        }
+
+        .profile-container {
+            text-align: center;
+            margin-bottom: 40px;
         }
 
         .fade-overlay {
@@ -469,6 +500,77 @@
             opacity: 0;
             transition: opacity 1s ease;
             z-index: -2;
+        }
+
+        .profile-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+
+        .contact-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: transparent;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 1s ease;
+        }
+
+        .contact-section.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contact-links {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: relative;
+        }
+
+        .contact-link {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            color: #fff;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .contact-link i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+
+        .contact-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: #00aaff;
+            transition: width 0.3s ease;
+        }
+
+        .contact-link:hover::after {
+            width: 100%;
+        }
+
+        .contact-link:hover {
+            color: #00aaff;
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -485,8 +587,11 @@
             <source src="video/portfolio_background.mp4" type="video/mp4">
         </video>
         <div class="landing-content">
-            <h1>Mohammed Azaan</h1>
-            <p>Software Engineer</p>
+            <div class="profile-container">
+                <img src="images/my image/myimage blue.png" alt="Profile Image" class="profile-image">
+                <div class="name-title">Mohammed Azaan</div>
+                <p>Software Engineer</p>
+            </div>
         </div>
         <div class="scroll-indicator">↓</div>
         <div class="details-section">
@@ -623,7 +728,7 @@
                             <div class="project-title">VoteEase: Digital Voting Software</div>
                         </div>
                     </div>
-                    
+
                     <div class="project-carousel">
                         <div class="carousel">
                             <div class="carousel-inner">
@@ -671,6 +776,17 @@
         </div>
     </div>
 
+    <!-- Contact Section -->
+    <div class="contact-section" id="contactSection">
+        <div class="contact-links">
+            <a href="mailto:azaanpeshmam45@gmail.com" class="contact-link">Email</a>
+            <a href="https://www.linkedin.com/in/mohammed-azaan-peshmam/" target="_blank" class="contact-link">LinkedIn</a>
+            <a href="https://www.behance.net/mohammedazaan" target="_blank" class="contact-link">Behance</a>
+            <a href="https://www.instagram.com/mohammed_azaan/" target="_blank" class="contact-link">Instagram</a>
+            <a href="https://x.com" target="_blank" class="contact-link">X</a>
+        </div>
+    </div>
+
     <script>
         // Scroll Animations
         const landingContent = document.querySelector('.landing-content');
@@ -679,6 +795,7 @@
         const landingSection = document.querySelector('.landing');
         const aboutLink = document.getElementById('aboutLink');
         const nameLink = document.getElementById('Namelink');
+        const contactSection = document.getElementById('contactSection');
 
         // Landing Content Animation
         window.addEventListener('load', () => {
@@ -751,6 +868,9 @@
             event.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+
+        // Contact Section Scroll Animation
+        observer.observe(contactSection);
     </script>
 </body>
 </html>
