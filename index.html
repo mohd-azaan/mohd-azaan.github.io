@@ -683,7 +683,7 @@
                         <p id="read-more-content-3" style="display: none;">
                             To ensure accessibility, the website was designed to be responsive and compatible with various devices, including desktops, tablets, and smartphones. Additionally, the website incorporates SEO best practices to improve its visibility on search engines.
                         </p>
-                        <span class="read-more" id="read-more-1">Read More</span>
+                        <span class="read-more" id="read-more-1">Read More ↓</span>
                     </div>
                     <div class="project-details-links">
 
@@ -787,7 +787,7 @@
                         <p id="read-more-content-5" style="display: none;">
                             Built with Python's custom Tkinter framework, it marked a new era of trust and digital transformation.
                         </p>
-                        <span class="read-more" id="read-more-2">Read More</span>
+                        <span class="read-more" id="read-more-2">Read More ↓</span>
                     </div>
                     <div class="project-details-links">
                         <h3>Press</h3>
@@ -900,7 +900,7 @@
         // Contact Section Scroll Animation
         observer.observe(contactSection);
 
-        // Read More Functionality
+        // Read More ↓ Functionality
         document.querySelectorAll('.read-more').forEach(button => {
             button.addEventListener('click', () => {
                 const contentIds = [
@@ -917,7 +917,7 @@
                                 content.style.display = content.style.display === 'none' ? 'block' : 'none';
                             }
                         });
-                        button.textContent = button.textContent === 'Read More' ? 'Read Less' : 'Read More';
+                        button.textContent = button.textContent === 'Read More ↓' ? 'Read Less ↑' : 'Read More ↓';
                     }
                 });
             });
