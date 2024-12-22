@@ -83,7 +83,7 @@
 
         .navbar {
             position: fixed;
-            top: 10px;
+            top: 0;
             left: 0;
             right: 0;
             display: flex;
@@ -91,7 +91,10 @@
             align-items: center;
             padding: 10px 20px;
             z-index: 1000;
+            backdrop-filter: blur(10px); /* Apply blur effect */
+            -webkit-backdrop-filter: blur(10px); /* For Safari */
         }
+        
 
         .landing {
             position: fixed;
@@ -820,6 +823,7 @@
         const contactSection = document.querySelector('.contact-section');
         const h2Elements = document.querySelectorAll('h2');
         nameLink.style.opacity = 0;
+        const navbar = document.getElementsByClassName('navbar');
 
         // Landing Content Animation
         window.addEventListener('load', () => {
@@ -880,6 +884,7 @@
             fadeOverlay.style.opacity = opacity;
             landingSection.style.opacity = 1 - opacity;
             nameLink.style.opacity = opacity;
+            
         });
 
         // Handle About Link Click
