@@ -4,161 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohammed Azaan - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            100: '#1E293B',
+                            200: '#0F172A',
+                            300: '#0B1120',
+                            400: '#030712'
+                        },
+                        accent: {
+                            100: '#7DD3FC',
+                            200: '#0EA5E9',
+                            300: '#0284C7'
+                        }
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 2s infinite',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bg-color: #f8f9fa;
-            --dark-bg: #121212;
-            --text-color: #212529;
-            --light-text: #f8f9fa;
-            --accent-color: #0077b6;
-            --light-accent: #48cae4;
-            --border-color: #dee2e6;
-            --card-bg: #fff;
-            --dark-card: #212529;
-        }
-
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-            transition: opacity 0.5s ease;
         }
-
-        body.dark-mode {
-            background-color: var(--dark-bg);
-            color: var(--light-text);
-        }
-
-        /* Minimal, clean scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent-color);
-            border-radius: 3px;
-        }
-
-        /* Navbar styles */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px 5%;
-            z-index: 1000;
-            transition: all 0.3s ease;
-            background-color: transparent;
-        }
-
-        .navbar.scrolled {
-            background-color: var(--bg-color);
-            padding: 15px 5%;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        body.dark-mode .navbar.scrolled {
-            background-color: var(--dark-bg);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .about-link {
-            text-decoration: none;
-            color: var(--light-text);
-            font-size: 1rem;
-            font-weight: 500;
-            padding: 8px 15px;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .navbar.scrolled .about-link {
-            color: var(--text-color);
-        }
-
-        body.dark-mode .navbar.scrolled .about-link {
-            color: var(--light-text);
-        }
-
-        .about-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--accent-color);
-            transition: all 0.3s ease;
-        }
-
-        .about-link:hover::after {
-            width: 100%;
-        }
-
-        #Namelink {
-            font-weight: 600;
-            font-size: 1.1rem;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        #aboutLink {
-            font-weight: 400;
-        }
-
-        /* Toggle theme button */
-        .theme-toggle {
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--light-text);
-            font-size: 1.2rem;
-            padding: 5px;
-            margin-left: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .navbar.scrolled .theme-toggle {
-            color: var(--text-color);
-        }
-
-        body.dark-mode .navbar.scrolled .theme-toggle {
-            color: var(--light-text);
-        }
-
-        /* Landing section styles */
-        .landing {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            z-index: -1;
-            transition: opacity 0.5s ease;
-        }
-
         .landing-video {
             position: absolute;
             top: 0;
@@ -167,83 +50,40 @@
             height: 100%;
             object-fit: cover;
             z-index: -1;
-            filter: brightness(0.65) saturate(1.1);
+            filter: brightness(0.4) saturate(1.1);
         }
-
-        .landing-content {
-            text-align: center;
-            z-index: 1;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s ease;
-            padding: 0 5%;
-        }
-
-        .landing-content.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .name-title {
-            font-size: 3.5rem;
-            font-weight: 600;
-            color: var(--light-text);
-            margin-bottom: 15px;
-            letter-spacing: -0.5px;
-        }
-
-        .profession {
-            font-weight: 300;
-            font-size: 1.2rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--light-text);
-            opacity: 0.9;
-        }
-
-        .details-section {
-            position: absolute;
-            bottom: 10%;
+        .carousel-inner {
             display: flex;
-            justify-content: center;
-            gap: 40px;
-            width: 90%;
-            max-width: 1000px;
-            font-size: 1rem;
-            color: var(--light-text);
-            z-index: 1;
+            transition: transform 0.5s ease;
         }
-
-        .details-section-1,
-        .details-section-2 {
-            max-width: 400px;
-            padding: 25px;
-            background-color: rgba(0, 0, 0, 0.4);
-            border-radius: 4px;
+        .carousel-item {
+            min-width: 100%;
+        }
+        .carousel-nav {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .project-carousel:hover .carousel-nav {
+            opacity: 1;
+        }
+        /* Minimal scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0F172A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0EA5E9;
+            border-radius: 3px;
+        }
+        .read-more {
             transition: all 0.3s ease;
         }
-
-        .details-section-1 {
-            text-align: left;
+        .read-more:hover {
+            color: #7DD3FC;
         }
-
-        .details-section-2 {
-            text-align: right;
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-            color: var(--light-text);
-            font-size: 1.5rem;
-            opacity: 0.7;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
+        /* Animation for scroll indicator */
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {
                 transform: translateY(0);
@@ -255,810 +95,276 @@
                 transform: translateY(-7px);
             }
         }
-
-        /* Project section styles */
-        .projects {
-            padding: 5%;
-            margin-top: 100vh;
-            position: relative;
-            z-index: 1;
-            background-color: var(--bg-color);
-        }
-
-        body.dark-mode .projects {
-            background-color: var(--dark-bg);
-        }
-
-        h2 {
-            text-align: center;
-            margin-top: 100px;
-            margin-bottom: 70px;
-            font-size: 2.2rem;
-            font-weight: 500;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s ease;
-            color: var(--text-color);
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        body.dark-mode h2 {
-            color: var(--light-text);
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 2px;
-            background-color: var(--accent-color);
-        }
-
-        h2.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .project {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 120px;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.5s ease;
-            background: var(--card-bg);
-            border-radius: 6px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-        }
-
-        body.dark-mode .project {
-            background: var(--dark-card);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .project:last-child {
-            margin-bottom: 50px;
-        }
-
-        .project.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .upper {
-            display: flex;
-            width: 100%;
-        }
-
-        .upper-even {
-            display: flex;
-            flex-direction: row-reverse;
-            width: 100%;
-        }
-
-        .mobile,
-        .mobile-right {
-            display: flex;
-            flex-direction: column;
-            padding: 30px;
-            width: 30%;
-        }
-
-        .mobile {
-            text-align: left;
-        }
-
-        .mobile-right {
-            text-align: right;
-        }
-
-        .project-year,
-        .project-year-right {
-            font-size: 0.9rem;
-            font-weight: 300;
-            color: var(--accent-color);
-            margin-bottom: 10px;
-        }
-
-        .project-title-container,
-        .project-title-container-right {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 20px;
-        }
-
-        .project-title {
-            font-size: 2rem;
-            font-weight: 500;
-            line-height: 1.2;
-            color: var(--text-color);
-        }
-
-        body.dark-mode .project-title {
-            color: var(--light-text);
-        }
-
-        .project-carousel {
-            width: 70%;
-            position: relative;
-        }
-
-        .carousel {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-        }
-
-        .carousel-inner {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .carousel-item {
-            min-width: 100%;
-            position: relative;
-        }
-
-        .carousel img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            vertical-align: middle;
-        }
-
-        .carousel-nav {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            padding: 0 15px;
-        }
-
-        .project-carousel:hover .carousel-nav {
-            opacity: 1;
-        }
-
-        .carousel-nav button {
-            background: rgba(0, 0, 0, 0.5);
-            border: none;
-            color: #fff;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .carousel-nav button:hover {
-            background: var(--accent-color);
-        }
-
-        .project-details {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            padding: 30px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        body.dark-mode .project-details {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .project-details-role,
-        .project-details-description,
-        .project-details-links {
-            width: 30%;
-            padding: 0 15px;
-        }
-
-        .project-details-role {
-            font-size: 0.95rem;
-        }
-
-        .project-details-role b {
-            font-size: 1.1rem;
-            color: var(--accent-color);
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-
-        .project-details-description {
-            font-size: 0.95rem;
-            font-weight: 300;
-            line-height: 1.7;
-        }
-
-        .project-details-description p {
-            margin-bottom: 15px;
-        }
-
-        .project-details-links {
-            font-size: 0.95rem;
-            text-align: right;
-        }
-
-        .project-details-links h3 {
-            margin-bottom: 15px;
-            color: var(--accent-color);
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-
-        .project-details-links a {
-            display: block;
-            margin-bottom: 10px;
-            color: var(--text-color);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        body.dark-mode .project-details-links a {
-            color: var(--light-text);
-        }
-
-        .project-details-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            right: 0;
-            width: 0;
-            height: 1px;
-            background: var(--accent-color);
-            transition: width 0.3s ease;
-        }
-
-        .project-details-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .project-details-links a:hover::after {
-            width: 100%;
-            left: 0;
-            right: auto;
-        }
-
-        .read-more {
-            color: var(--accent-color);
-            cursor: pointer;
-            text-decoration: none;
-            margin-top: 10px;
-            display: inline-block;
-            padding: 5px 0;
-            position: relative;
-            font-size: 0.9rem;
-        }
-
-        .read-more::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: var(--accent-color);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.3s ease;
-        }
-
-        .read-more:hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-
-        /* Contact section styles */
-        .contact-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 50vh;
-            padding: 100px 0;
-            background: var(--bg-color);
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s ease;
-        }
-
-        body.dark-mode .contact-section {
-            background: var(--dark-bg);
-        }
-
-        .contact-section.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .contact-title {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2.2rem;
-            font-weight: 500;
-            color: var(--text-color);
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        body.dark-mode .contact-title {
-            color: var(--light-text);
-        }
-
-        .contact-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 2px;
-            background-color: var(--accent-color);
-        }
-
-        .contact-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            max-width: 600px;
-            padding: 0 5%;
-        }
-
-        .contact-links {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            width: 100%;
-        }
-
-        .contact-link {
-            text-decoration: none;
-            color: var(--text-color);
-            padding: 15px 20px;
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: transparent;
-        }
-
-        body.dark-mode .contact-link {
-            color: var(--light-text);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .contact-link i {
-            margin-right: 10px;
-            color: var(--accent-color);
-        }
-
-        .contact-link:hover {
-            border-color: var(--accent-color);
-            transform: translateY(-3px);
-        }
-
-        .fade-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: var(--bg-color);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            z-index: -2;
-        }
-
-        body.dark-mode .fade-overlay {
-            background-color: var(--dark-bg);
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 30px 5%;
-            color: var(--text-color);
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-
-        body.dark-mode .footer {
-            color: var(--light-text);
-        }
-
-        /* Responsive styles */
-        @media (max-width: 1024px) {
-            .project-carousel {
-                width: 60%;
-            }
-            
-            .mobile, .mobile-right {
-                width: 40%;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .name-title {
-                font-size: 2.8rem;
-            }
-            
-            .profession {
-                font-size: 1rem;
-            }
-            
-            h2, .contact-title {
-                font-size: 1.8rem;
-                margin-top: 80px;
-                margin-bottom: 50px;
-            }
-            
-            .upper, .upper-even {
-                flex-direction: column;
-            }
-            
-            .mobile, .mobile-right {
-                width: 100%;
-                text-align: center;
-                padding: 30px 20px 0 20px;
-            }
-            
-            .project-title-container, .project-title-container-right {
-                align-items: center;
-            }
-            
-            .project-carousel {
-                width: 100%;
-            }
-            
-            .carousel img {
-                height: 300px;
-            }
-            
-            .project-details {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .project-details-role, .project-details-description, .project-details-links {
-                width: 100%;
-                text-align: center;
-                padding: 0;
-            }
-            
-            .project-details-links a::after {
-                left: 50%;
-                transform: translateX(-50%);
-                right: auto;
-            }
-            
-            .project-details-links a:hover::after {
-                width: 50%;
-            }
-            
-            .contact-links {
-                grid-template-columns: 1fr;
-            }
-            
-            .details-section {
-                flex-direction: column;
-                gap: 20px;
-                bottom: 15%;
-            }
-            
-            .details-section-1, .details-section-2 {
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .navbar {
-                padding: 20px 5%;
-            }
-            
-            .name-title {
-                font-size: 2.2rem;
-            }
-            
-            .profession {
-                font-size: 0.9rem;
-                letter-spacing: 2px;
-            }
-            
-            h2, .contact-title {
-                font-size: 1.6rem;
-            }
-            
-            .project-title {
-                font-size: 1.6rem;
-            }
-            
-            .carousel img {
-                height: 220px;
-            }
-            
-            .project {
-                margin-bottom: 80px;
-            }
-            
-            .project-details {
-                padding: 20px;
-            }
-            
-            .details-section-1, .details-section-2 {
-                padding: 15px;
-                font-size: 0.9rem;
-            }
+        .animate-bounce-slow {
+            animation: bounce 2s infinite;
         }
     </style>
 </head>
-<body>
+<body class="bg-dark-400 text-gray-100">
     <!-- Navbar -->
-    <div class="navbar">
-        <a href="index.html" class="about-link" id="Namelink">Mohammed Azaan</a>
-        <div style="display: flex; align-items: center;">
-            <a href="about.html" class="about-link" id="aboutLink">About</a>
-            <button class="theme-toggle" id="themeToggle">
-                <i class="fas fa-moon"></i>
-            </button>
-        </div>
+    <div class="fixed top-0 left-0 right-0 flex justify-between items-center px-8 py-5 z-50 transition duration-300 ease-in-out" id="navbar">
+        <a href="index.html" class="text-gray-100 font-semibold text-lg transition duration-300 ease-in-out hover:text-accent-200" id="Namelink">
+            Mohammed Azaan
+        </a>
+        <a href="about.html" class="text-gray-100 transition duration-300 ease-in-out hover:text-accent-200">
+            About
+        </a>
     </div>
 
     <!-- Landing Section -->
-    <div class="landing">
+    <div class="fixed top-0 left-0 w-full h-screen flex justify-center items-center overflow-hidden -z-10 transition duration-500 ease-in-out" id="landing">
         <video class="landing-video" autoplay loop muted>
             <source src="video/portfolio_background.mp4" type="video/mp4">
         </video>
-        <div class="landing-content">
-            <div class="name-title">Mohammed Azaan</div>
-            <p class="profession">Software Engineer</p>
+        <div class="text-center z-10 opacity-0 transform translate-y-5 transition duration-700 ease-in-out" id="landing-content">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-3 tracking-tight">Mohammed Azaan</h1>
+            <p class="text-lg uppercase tracking-widest font-light text-gray-200">Software Engineer</p>
         </div>
-        <div class="scroll-indicator">↓</div>
-        <div class="details-section">
-            <div class="details-section-1">
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce-slow text-2xl text-gray-200 opacity-80 cursor-pointer transition duration-300 ease-in-out hover:text-accent-200 hover:opacity-100" id="scroll-indicator">
+            ↓
+        </div>
+        <div class="absolute bottom-[15%] flex flex-col md:flex-row justify-center gap-8 w-11/12 max-w-4xl mx-auto z-10">
+            <div class="max-w-md p-6 bg-black/40 backdrop-blur-sm rounded-sm">
                 Currently a student pursuing a degree in Computer Science. Passionate about web development and design.
             </div>
-            <div class="details-section-2">
+            <div class="max-w-md p-6 bg-black/40 backdrop-blur-sm rounded-sm md:text-right">
                 Clients include various startups and small businesses. Focused on delivering high-quality, responsive web solutions.
             </div>
         </div>
     </div>
 
     <!-- Fade Overlay -->
-    <div class="fade-overlay"></div>
+    <div class="fixed top-0 left-0 w-full h-screen bg-dark-400 opacity-0 transition duration-500 ease-in-out -z-20" id="fade-overlay"></div>
 
     <!-- Projects Section -->
-    <div class="projects">
-        <h2>Web Development Projects</h2>
-        <div>
-            <div class="project" id="project1">
-                <div class="upper">
-                    <div class="mobile">
-                        <div class="project-year">2024</div>
-                        <div class="project-title-container">
-                            <div class="project-title">AITM College Website</div>
-                        </div>
-                    </div>
-                    <div class="project-carousel">
-                        <div class="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item">
-                                    <img src="images/project1/image copy.png" alt="Project 1 Image 1">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/project1/image.png" alt="Project 1 Image 2">
-                                </div>
+    <div class="pt-screen px-4 sm:px-8 md:px-12 relative z-10 bg-dark-400" id="projects">
+        <h2 class="text-center mt-24 mb-16 text-3xl font-medium text-white relative opacity-0 transform translate-y-4 transition duration-500 ease-in-out" id="web-dev-title">
+            Web Development Projects
+            <span class="absolute bottom-0 left-1/2 w-12 h-0.5 bg-accent-200 transform -translate-x-1/2 mt-2"></span>
+        </h2>
+        
+        <!-- Project 1 -->
+        <div class="mb-24 opacity-0 transform translate-y-8 transition duration-500 ease-in-out bg-dark-300 rounded-sm overflow-hidden shadow-lg" id="project1">
+            <!-- Project Header -->
+            <div class="flex flex-col md:flex-row w-full">
+                <div class="md:w-1/3 p-6 md:p-8">
+                    <div class="text-accent-100 text-sm tracking-wider mb-3">2024</div>
+                    <h3 class="text-2xl lg:text-3xl font-medium text-white mb-4">AITM College Website</h3>
+                </div>
+                
+                <!-- Project Carousel -->
+                <div class="md:w-2/3 relative project-carousel">
+                    <div class="overflow-hidden">
+                        <div class="carousel-inner">
+                            <div class="carousel-item">
+                                <img src="images/project1/image copy.png" alt="Project 1 Image 1" class="w-full h-72 md:h-80 object-cover">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/project1/image.png" alt="Project 1 Image 2" class="w-full h-72 md:h-80 object-cover">
                             </div>
                         </div>
-                        <div class="carousel-nav">
-                            <button class="prev-btn">&lt;</button>
-                            <button class="next-btn">&gt;</button>
-                        </div>
                     </div>
-                </div>
-    
-                <div class="project-details">
-                    <div class="project-details-role">
-                        <p><b>Backend Developer</b></p>
-                    </div>
-                    <div class="project-details-description">
-                        <p>
-                            The AITM College Website project involved creating a comprehensive and user-friendly online platform for the college. The website was designed to provide essential information to students, faculty, and visitors, including academic programs, campus facilities, and important announcements.
-                        </p>
-                        <p id="read-more-content-1" style="display: none;">
-                            One of the key features of the website is the interactive course catalog, which allows students to browse through various courses offered by the college. Each course listing includes detailed descriptions, prerequisites, and contact information for the course instructors.
-                        </p>
-                        <p id="read-more-content-2" style="display: none;">
-                            The website also includes a dedicated section for campus life, highlighting student activities, clubs, and events. This section aims to foster a sense of community among students and encourage participation in extracurricular activities.
-                        </p>
-                        <p id="read-more-content-3" style="display: none;">
-                            To ensure accessibility, the website was designed to be responsive and compatible with various devices, including desktops, tablets, and smartphones. Additionally, the website incorporates SEO best practices to improve its visibility on search engines.
-                        </p>
-                        <span class="read-more" id="read-more-1">Read More ↓</span>
-                    </div>
-                    <div class="project-details-links">
-                        <!-- Links section is empty in the original code -->
+                    <div class="carousel-nav absolute top-1/2 w-full flex justify-between transform -translate-y-1/2 px-4">
+                        <button class="prev-btn bg-black/50 hover:bg-accent-300 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">&lt;</button>
+                        <button class="next-btn bg-black/50 hover:bg-accent-300 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">&gt;</button>
                     </div>
                 </div>
             </div>
-
-            <div class="project" id="project2">
-                <div class="upper-even">
-                    <div class="mobile-right">
-                        <div class="project-year-right">2024</div>
-                        <div class="project-title-container-right">
-                            <div class="project-title">UniTech Business Portfolio</div>
-                        </div>
-                    </div>
-                    <div class="project-carousel">
-                        <div class="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item">
-                                    <img src="images/project2/image copy.png" alt="Project 2 Image 1">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/project2/image copy 2.png" alt="Project 2 Image 2">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/project2/image.png" alt="Project 2 Image 3">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-nav">
-                            <button class="prev-btn">&lt;</button>
-                            <button class="next-btn">&gt;</button>
-                        </div>
-                    </div>
+            
+            <!-- Project Details -->
+            <div class="flex flex-col md:flex-row border-t border-gray-800 p-6 md:p-8">
+                <div class="md:w-1/4 mb-4 md:mb-0 pr-0 md:pr-4">
+                    <div class="text-lg text-accent-100 font-medium mb-2">Backend Developer</div>
                 </div>
-
-                <div class="project-details">
-                    <div class="project-details-role">
-                        <p><b>Full Stack</b></p>
-                    </div>
-                    <div class="project-details-description">
-                        <p>
-                            A professional business portfolio website showcasing UniTech's corporate identity, innovative services, and technological solutions. Developed with a focus on clean, modern design and user experience.
-                        </p>
-                    </div>
-                    <div class="project-details-links">
-                        <!-- Links section is empty in the original code -->
-                    </div>
+                <div class="md:w-2/4 mb-4 md:mb-0 pr-0 md:pr-4 text-gray-300 text-sm leading-relaxed">
+                    <p class="mb-4">
+                        The AITM College Website project involved creating a comprehensive and user-friendly online platform for the college. The website was designed to provide essential information to students, faculty, and visitors, including academic programs, campus facilities, and important announcements.
+                    </p>
+                    <p id="read-more-content-1" class="mb-4 hidden">
+                        One of the key features of the website is the interactive course catalog, which allows students to browse through various courses offered by the college. Each course listing includes detailed descriptions, prerequisites, and contact information for the course instructors.
+                    </p>
+                    <p id="read-more-content-2" class="mb-4 hidden">
+                        The website also includes a dedicated section for campus life, highlighting student activities, clubs, and events. This section aims to foster a sense of community among students and encourage participation in extracurricular activities.
+                    </p>
+                    <p id="read-more-content-3" class="mb-4 hidden">
+                        To ensure accessibility, the website was designed to be responsive and compatible with various devices, including desktops, tablets, and smartphones. Additionally, the website incorporates SEO best practices to improve its visibility on search engines.
+                    </p>
+                    <button class="read-more text-accent-200 hover:underline text-sm" id="read-more-1">Read More ↓</button>
+                </div>
+                <div class="md:w-1/4 md:text-right">
+                    <!-- Empty in original code -->
                 </div>
             </div>
         </div>
 
-        <h2>Software Development Projects</h2>
-        <div>
-            <div class="project" id="project3">
-                <div class="upper">
-                    <div class="mobile">
-                        <div class="project-year">2024</div>
-                        <div class="project-title-container">
-                            <div class="project-title">VoteEase: Digital Voting Software</div>
-                        </div>
-                    </div>
-
-                    <div class="project-carousel">
-                        <div class="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item">
-                                    <img src="images/voting/shall.jpeg" alt="Project 1 Image 1">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/voting/voting image 3.jpeg" alt="Project 1 Image 2">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/voting/voting image 2.jpeg" alt="Project 1 Image 2">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/voting/voting image 1.jpeg" alt="Project 1 Image 2">
-                                </div>
+        <!-- Project 2 -->
+        <div class="mb-24 opacity-0 transform translate-y-8 transition duration-500 ease-in-out bg-dark-300 rounded-sm overflow-hidden shadow-lg" id="project2">
+            <!-- Project Header -->
+            <div class="flex flex-col md:flex-row-reverse w-full">
+                <div class="md:w-1/3 p-6 md:p-8 md:text-right">
+                    <div class="text-accent-100 text-sm tracking-wider mb-3">2024</div>
+                    <h3 class="text-2xl lg:text-3xl font-medium text-white mb-4">UniTech Business Portfolio</h3>
+                </div>
+                
+                <!-- Project Carousel -->
+                <div class="md:w-2/3 relative project-carousel">
+                    <div class="overflow-hidden">
+                        <div class="carousel-inner">
+                            <div class="carousel-item">
+                                <img src="images/project2/image copy.png" alt="Project 2 Image 1" class="w-full h-72 md:h-80 object-cover">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/project2/image copy 2.png" alt="Project 2 Image 2" class="w-full h-72 md:h-80 object-cover">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/project2/image.png" alt="Project 2 Image 3" class="w-full h-72 md:h-80 object-cover">
                             </div>
                         </div>
-                        <div class="carousel-nav">
-                            <button class="prev-btn">&lt;</button>
-                            <button class="next-btn">&gt;</button>
-                        </div>
+                    </div>
+                    <div class="carousel-nav absolute top-1/2 w-full flex justify-between transform -translate-y-1/2 px-4">
+                        <button class="prev-btn bg-black/50 hover:bg-accent-300 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">&lt;</button>
+                        <button class="next-btn bg-black/50 hover:bg-accent-300 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">&gt;</button>
                     </div>
                 </div>
+            </div>
+            
+            <!-- Project Details -->
+            <div class="flex flex-col md:flex-row border-t border-gray-800 p-6 md:p-8">
+                <div class="md:w-1/4 mb-4 md:mb-0 pr-0 md:pr-4">
+                    <div class="text-lg text-accent-100 font-medium mb-2">Full Stack</div>
+                </div>
+                <div class="md:w-2/4 mb-4 md:mb-0 pr-0 md:pr-4 text-gray-300 text-sm leading-relaxed">
+                    <p>
+                        A professional business portfolio website showcasing UniTech's corporate identity, innovative services, and technological solutions. Developed with a focus on clean, modern design and user experience.
+                    </p>
+                </div>
+                <div class="md:w-1/4 md:text-right">
+                    <!-- Empty in original code -->
+                </div>
+            </div>
+        </div>
 
-                <div class="project-details">
-                    <div class="project-details-role">
-                        <p><b>Lead Developer</b></p>
+        <!-- Software Development Projects Header -->
+        <h2 class="text-center mt-24 mb-16 text-3xl font-medium text-white relative opacity-0 transform translate-y-4 transition duration-500 ease-in-out" id="software-dev-title">
+            Software Development Projects
+            <span class="absolute bottom-0 left-1/2 w-12 h-0.5 bg-accent-200 transform -translate-x-1/2 mt-2"></span>
+        </h2>
+        
+        <!-- Project 3 -->
+        <div class="mb-24 opacity-0 transform translate-y-8 transition duration-500 ease-in-out bg-dark-300 rounded-sm overflow-hidden shadow-lg" id="project3">
+            <!-- Project Header -->
+            <div class="flex flex-col md:flex-row w-full">
+                <div class="md:w-1/3 p-6 md:p-8">
+                    <div class="text-accent-100 text-sm tracking-wider mb-3">2024</div>
+                    <h3 class="text-2xl lg:text-3xl font-medium text-white mb-4">VoteEase: Digital Voting Software</h3>
+                </div>
+                
+                <!-- Project Carousel -->
+                <div class="md:w-2/3 relative project-carousel">
+                    <div class="overflow-hidden">
+                        <div class="carousel-inner">
+                            <div class="carousel-item">
+                                <img src="images/voting/shall.jpeg" alt="Project 3 Image 1" class="w-full h-72 md:h-80 object-cover">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/voting/voting image 3.jpeg" alt="Project 3 Image 2" class="w-full h-72 md:h-80 object-cover">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/voting/voting image 2.jpeg" alt="Project 3 Image 3" class="w-full h-72 md:h-80 object-cover">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/voting/voting image 1.jpeg" alt="Project 3 Image 4" class="w-full h-72 md:h-80 object-cover">
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-details-description">
-                        <p>
-                            "VoteEase" revolutionized elections for our college governing council, ensuring a smooth voting process for over 500 voters with results announced in just 20 minutes.
-                        </p>
-                        <p id="read-more-content-4" style="display: none;">
-                            Adopted by BMJD and YMSA Sports Club, the software handled over 1,200 voters, eliminating invalid votes and offering unparalleled efficiency.
-                        </p>
-                        <p id="read-more-content-5" style="display: none;">
-                            Built with Python's custom Tkinter framework, it marked a new era of trust and digital transformation.
-                        </p>
-                        <span class="read-more" id="read-more-2">Read More ↓</span>
+                    <div class="carousel-nav absolute top-1/2 w-full flex justify-between transform -translate-y-1/2 px-4">
+                        <button class="prev-btn bg-black/50 hover:bg-accent-300 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">&lt;</button>
+                        <button class="next-btn bg-black/50 hover:bg-accent-300 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">&gt;</button>
                     </div>
-                    <div class="project-details-links">
-                        <h3>Press</h3>
-                        <a href="https://sahilonline.org/bhatkal-anjuman-elections-computerized-voting-app-delivers-rapid-results" target="_blank">Sahil Online News</a>
-                        <a href="https://www.youtube.com/watch?v=kpg6CIX-Z04" target="_blank">Youtube</a>
-                    </div>
+                </div>
+            </div>
+            
+            <!-- Project Details -->
+            <div class="flex flex-col md:flex-row border-t border-gray-800 p-6 md:p-8">
+                <div class="md:w-1/4 mb-4 md:mb-0 pr-0 md:pr-4">
+                    <div class="text-lg text-accent-100 font-medium mb-2">Lead Developer</div>
+                </div>
+                <div class="md:w-2/4 mb-4 md:mb-0 pr-0 md:pr-4 text-gray-300 text-sm leading-relaxed">
+                    <p class="mb-4">
+                        "VoteEase" revolutionized elections for our college governing council, ensuring a smooth voting process for over 500 voters with results announced in just 20 minutes.
+                    </p>
+                    <p id="read-more-content-4" class="mb-4 hidden">
+                        Adopted by BMJD and YMSA Sports Club, the software handled over 1,200 voters, eliminating invalid votes and offering unparalleled efficiency.
+                    </p>
+                    <p id="read-more-content-5" class="mb-4 hidden">
+                        Built with Python's custom Tkinter framework, it marked a new era of trust and digital transformation.
+                    </p>
+                    <button class="read-more text-accent-200 hover:underline text-sm" id="read-more-2">Read More ↓</button>
+                </div>
+                <div class="md:w-1/4 md:text-right">
+                    <h4 class="text-lg text-accent-100 font-medium mb-3">Press</h4>
+                    <a href="https://sahilonline.org/bhatkal-anjuman-elections-computerized-voting-app-delivers-rapid-results" target="_blank" class="block mb-2 text-gray-300 hover:text-accent-100 transition duration-300">Sahil Online News</a>
+                    <a href="https://www.youtube.com/watch?v=kpg6CIX-Z04" target="_blank" class="block mb-2 text-gray-300 hover:text-accent-100 transition duration-300">Youtube</a>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Contact Section -->
-    <div class="contact-section" id="contactSection">
-        <div class="contact-container">
-            <h2 class="contact-title">Get in Touch</h2>
-            <div class="contact-links">
-                <a href="mailto:azaanpeshmam45@gmail.com" class="contact-link">
-                    <i class="fas fa-envelope"></i> Email
+    <div class="py-24 px-4 sm:px-8 flex justify-center items-center bg-gradient-to-b from-dark-400 to-dark-300 opacity-0 transform translate-y-8 transition duration-500 ease-in-out" id="contactSection">
+        <div class="w-full max-w-2xl">
+            <h2 class="text-center mb-12 text-3xl font-medium text-white relative">
+                Get in Touch
+                <span class="absolute bottom-0 left-1/2 w-12 h-0.5 bg-accent-200 transform -translate-x-1/2 mt-2"></span>
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <a href="mailto:azaanpeshmam45@gmail.com" class="p-4 border border-gray-800 rounded-sm hover:border-accent-100 hover:transform hover:-translate-y-1 transition duration-300 flex items-center justify-center gap-3 group">
+                    <i class="fas fa-envelope text-accent-100"></i>
+                    <span class="group-hover:text-accent-100 transition duration-300">Email</span>
                 </a>
-                <a href="https://www.linkedin.com/in/mohammed-azaan-peshmam-579560280" target="_blank" class="contact-link">
-                    <i class="fab fa-linkedin"></i> LinkedIn
+                <a href="https://www.linkedin.com/in/mohammed-azaan-peshmam-579560280" target="_blank" class="p-4 border border-gray-800 rounded-sm hover:border-accent-100 hover:transform hover:-translate-y-1 transition duration-300 flex items-center justify-center gap-3 group">
+                    <i class="fab fa-linkedin text-accent-100"></i>
+                    <span class="group-hover:text-accent-100 transition duration-300">LinkedIn</span>
                 </a>
-                <a href="https://github.com/mohd-azaan" target="_blank" class="contact-link">
-                    <i class="fab fa-github"></i> Github
+                <a href="https://github.com/mohd-azaan" target="_blank" class="p-4 border border-gray-800 rounded-sm hover:border-accent-100 hover:transform hover:-translate-y-1 transition duration-300 flex items-center justify-center gap-3 group">
+                    <i class="fab fa-github text-accent-100"></i>
+                    <span class="group-hover:text-accent-100 transition duration-300">Github</span>
                 </a>
-                <a href="https://www.instagram.com/mohd__azaan" target="_blank" class="contact-link">
-                    <i class="fab fa-instagram"></i> Instagram
+                <a href="https://www.instagram.com/mohd__azaan" target="_blank" class="p-4 border border-gray-800 rounded-sm hover:border-accent-100 hover:transform hover:-translate-y-1 transition duration-300 flex items-center justify-center gap-3 group">
+                    <i class="fab fa-instagram text-accent-100"></i>
+                    <span class="group-hover:text-accent-100 transition duration-300">Instagram</span>
                 </a>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <div class="footer">
+    <div class="text-center py-6 text-gray-500 text-sm bg-dark-400">
         &copy; 2024 Mohammed Azaan. All rights reserved.
     </div>
 
     <script>
         // DOM Elements
-        const landingContent = document.querySelector('.landing-content');
-        const projects = document.querySelectorAll('.project');
-        const fadeOverlay = document.querySelector('.fade-overlay');
-        const landingSection = document.querySelector('.landing');
-        const aboutLink = document.getElementById('aboutLink');
+        const landingContent = document.getElementById('landing-content');
+        const projects = document.querySelectorAll('#project1, #project2, #project3');
+        const fadeOverlay = document.getElementById('fade-overlay');
+        const landingSection = document.getElementById('landing');
+        const navbar = document.getElementById('navbar');
         const nameLink = document.getElementById('Namelink');
-        const contactSection = document.querySelector('.contact-section');
-        const h2Elements = document.querySelectorAll('h2');
-        const navbar = document.querySelector('.navbar');
-        const themeToggle = document.getElementById('themeToggle');
+        const contactSection = document.getElementById('contactSection');
+        const webDevTitle = document.getElementById('web-dev-title');
+        const softwareDevTitle = document.getElementById('software-dev-title');
+        const scrollIndicator = document.getElementById('scroll-indicator');
         
         // Set initial states
-        nameLink.style.opacity = 0;
-        let isDarkMode = false;
-
-        // Theme toggle functionality
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            isDarkMode = !isDarkMode;
-            themeToggle.innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-        });
+        nameLink.style.opacity = '0';
 
         // Landing Content Animation
         window.addEventListener('load', () => {
             setTimeout(() => {
-                landingContent.classList.add('show');
-                nameLink.style.opacity = 1;
+                landingContent.classList.remove('opacity-0', 'translate-y-5');
+                landingContent.classList.add('opacity-100', 'translate-y-0');
+                nameLink.style.opacity = '1';
             }, 500);
         });
 
@@ -1072,7 +378,8 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
+                    entry.target.classList.remove('opacity-0', 'translate-y-8', 'translate-y-4');
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
                 }
             });
         }, observerOptions);
@@ -1082,10 +389,8 @@
             observer.observe(project);
         });
 
-        h2Elements.forEach(h2 => {
-            observer.observe(h2);
-        });
-
+        observer.observe(webDevTitle);
+        observer.observe(softwareDevTitle);
         observer.observe(contactSection);
 
         // Carousel Navigation
@@ -1116,20 +421,21 @@
             
             fadeOverlay.style.opacity = opacity;
             landingSection.style.opacity = 1 - opacity;
-            nameLink.style.opacity = opacity;
             
             // Add scrolled class to navbar when scrolling
             if (scrollPosition > 50) {
-                navbar.classList.add('scrolled');
+                navbar.classList.add('bg-dark-300', 'shadow-md');
+                nameLink.style.opacity = '1';
             } else {
-                navbar.classList.remove('scrolled');
+                navbar.classList.remove('bg-dark-300', 'shadow-md');
+                nameLink.style.opacity = opacity.toString();
             }
         });
 
         // Handle About Link Click
-        aboutLink.addEventListener('click', (event) => {
+        document.querySelector('a[href="about.html"]').addEventListener('click', (event) => {
             event.preventDefault();
-            document.body.style.opacity = 0;
+            document.body.classList.add('opacity-0');
             setTimeout(() => {
                 window.location.href = 'about.html';
             }, 500);
@@ -1142,7 +448,7 @@
         });
 
         // Scroll indicator click
-        document.querySelector('.scroll-indicator').addEventListener('click', () => {
+        scrollIndicator.addEventListener('click', () => {
             window.scrollTo({
                 top: window.innerHeight,
                 behavior: 'smooth'
@@ -1163,7 +469,7 @@
                         contentIds.forEach(id => {
                             const content = document.getElementById(id);
                             if (content) {
-                                content.style.display = content.style.display === 'none' ? 'block' : 'none';
+                                content.classList.toggle('hidden');
                             }
                         });
                         button.textContent = button.textContent === 'Read More ↓' ? 'Read Less ↑' : 'Read More ↓';
