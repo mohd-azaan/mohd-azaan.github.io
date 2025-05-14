@@ -103,6 +103,11 @@
             border-radius: 2px;
         }
 
+        h2.show {
+            opacity: 1;
+            transform: translateY(0) translateX(-50%);
+        }
+
         /* Utils */
         .container {
             width: 100%;
@@ -267,16 +272,6 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-        }
-
-        .hero-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.3) saturate(1.2);
         }
 
         .hero-content {
@@ -737,6 +732,60 @@
             font-size: 1.25rem;
         }
 
+        /* Certifications Section */
+        .certifications-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .cert-list, .goals-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .cert-item, .goal-item {
+            display: flex;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border-radius: 10px;
+            transition: var(--transition-smooth);
+        }
+
+        .cert-item:hover, .goal-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .cert-item i, .goal-item i {
+            font-size: 1.75rem;
+            color: var(--color-primary);
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .goal-item i {
+            color: var(--color-accent);
+        }
+
+        .cert-content h4, .goal-content h4 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .cert-content p, .goal-content p {
+            margin: 0;
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+        }
+
+        .certifications-list h3, .learning-goals h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
         /* Contact Section */
         .contact-wrapper {
             display: grid;
@@ -1114,6 +1163,15 @@
                 grid-template-columns: 1fr;
                 gap: 3rem;
             }
+            
+            .certifications-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .learning-goals {
+                margin-top: 1rem;
+            }
         }
 
         @media (max-width: 992px) {
@@ -1302,8 +1360,9 @@
                 <a href="#about" class="nav-link">About</a>
                 <a href="#experience" class="nav-link">Experience</a>
                 <a href="#projects" class="nav-link">Projects</a>
+                <a href="#certifications" class="nav-link">Certifications</a>
                 <a href="#contact" class="nav-link">Contact</a>
-                <a href="https://github.com/azaanpeshmam" class="btn btn-primary">Resume</a>
+                <a href="https://github.com/mohd-azaan" class="btn btn-primary">Resume</a>
             </nav>
             <button class="menu-btn">
                 <i class="fas fa-bars"></i>
@@ -1320,13 +1379,14 @@
             <li><a href="#about" class="mobile-link">About</a></li>
             <li><a href="#experience" class="mobile-link">Experience</a></li>
             <li><a href="#projects" class="mobile-link">Projects</a></li>
+            <li><a href="#certifications" class="mobile-link">Certifications</a></li>
             <li><a href="#contact" class="mobile-link">Contact</a></li>
         </ul>
-        <a href="https://github.com/azaanpeshmam" class="btn btn-primary">Resume</a>
+        <a href="https://github.com/mohd-azaan" class="btn btn-primary">Resume</a>
         <div class="mobile-socials">
-            <a href="https://github.com/azaanpeshmam" class="social-link"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/azaanpeshmam" class="social-link"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.instagram.com/mohd__azaan" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/mohd-azaan" class="social-link"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/mohammed-azaan-peshmam-579560280" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="tel:+918431821788" class="social-link"><i class="fas fa-phone-alt"></i></a>
         </div>
     </div>
     <div class="overlay"></div>
@@ -1341,7 +1401,7 @@
             <div class="hero-content">
                 <span class="hero-intro fade-in">Hello, I'm</span>
                 <h1 class="hero-heading gradient-text fade-in delay-1">Mohammed Azaan</h1>
-                <p class="hero-subtitle fade-in delay-2">A full‑stack problem‑solver, open‑source tinkerer, and third‑year Computer‑Science undergrad at AITM Bhatkal.</p>
+                <p class="hero-subtitle fade-in delay-2">A third‑year Computer‑Science undergrad at AITM Bhatkal specializing in Python-powered back-ends with Django & DRF, robust API integrations, and Tailwind-styled UIs.</p>
                 <div class="hero-actions fade-in delay-3">
                     <a href="#projects" class="btn btn-primary">View My Work</a>
                     <a href="#contact" class="btn btn-outline">Get In Touch</a>
@@ -1357,14 +1417,14 @@
             <h2 class="section-title gradient-text fade-in">About Me</h2>
             <div class="about-content">
                 <div class="about-image fade-in">
-                                            <img src="images/my image/myimage.blue.png" alt="Mohammed Azaan" />
+                    <img src="images/setup image.png" alt="Mohammed Azaan" />
                 </div>
                 <div class="about-text fade-in delay-1">
                     <p>
-                        I'm <strong>Mohammed Azaan Peshmam</strong>—a full‑stack problem‑solver, open‑source tinkerer, and third‑year Computer‑Science undergrad at <strong>Anjuman Institute of Technology & Management (AITM), Bhatkal</strong>. What energises me is the challenge of turning an idea from whiteboard sketch into production‑ready code that real people rely on every day.
+                        I'm <strong>Mohammed Azaan Peshmam</strong>—a third‑year <strong>B.E. Computer Science</strong> student at <strong>Anjuman Institute of Technology & Management (AITM), Bhatkal</strong> (GPA 8.0/10). I specialize in <strong>Python-powered back‑ends with Django & DRF</strong>, robust API integrations, and Tailwind-styled UIs. My projects focus on biometric access control, subscription billing, and data-rich dashboards—always delivered with clean code, strong tests, and clear logs.
                     </p>
                     <p>
-                        <strong>My approach:</strong> I build with clean code, insightful logs, and automate everything. I'm particularly focused on scalable Django architectures, biometric/IoT integrations, and AI‑driven learning platforms.
+                        <strong>My approach:</strong> I build robust back-ends and lightweight interfaces because software should be both powerful and pleasant. I believe in readability first, reliability through testing, and continuous improvement.
                     </p>
                     <div class="skill-grid">
                         <div class="skill-card">
@@ -1372,32 +1432,32 @@
                             <div class="skill-name">Python</div>
                         </div>
                         <div class="skill-card">
-                            <div class="skill-icon"><i class="fab fa-js"></i></div>
-                            <div class="skill-name">JavaScript</div>
+                            <div class="skill-icon"><i class="fas fa-code"></i></div>
+                            <div class="skill-name">C</div>
                         </div>
                         <div class="skill-card">
-                            <div class="skill-icon"><i class="fab fa-react"></i></div>
-                            <div class="skill-name">React</div>
+                            <div class="skill-icon"><i class="fab fa-java"></i></div>
+                            <div class="skill-name">Java</div>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-icon"><i class="fab fa-js"></i></div>
+                            <div class="skill-name">JavaScript</div>
                         </div>
                         <div class="skill-card">
                             <div class="skill-icon"><i class="fas fa-server"></i></div>
                             <div class="skill-name">Django</div>
                         </div>
                         <div class="skill-card">
-                            <div class="skill-icon"><i class="fas fa-database"></i></div>
-                            <div class="skill-name">MySQL</div>
-                        </div>
-                        <div class="skill-card">
-                            <div class="skill-icon"><i class="fas fa-code"></i></div>
+                            <div class="skill-icon"><i class="fas fa-exchange-alt"></i></div>
                             <div class="skill-name">REST APIs</div>
                         </div>
                         <div class="skill-card">
-                            <div class="skill-icon"><i class="fas fa-tachometer-alt"></i></div>
-                            <div class="skill-name">Redis</div>
+                            <div class="skill-icon"><i class="fab fa-html5"></i></div>
+                            <div class="skill-name">HTML/CSS</div>
                         </div>
                         <div class="skill-card">
-                            <div class="skill-icon"><i class="fab fa-github"></i></div>
-                            <div class="skill-name">Git/GitHub</div>
+                            <div class="skill-icon"><i class="fas fa-wind"></i></div>
+                            <div class="skill-name">Tailwind</div>
                         </div>
                     </div>
                 </div>
@@ -1412,22 +1472,22 @@
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="timeline-date">Jun – Jul 2024</div>
-                        <h3 class="timeline-title">Python Developer Intern</h3>
-                        <p class="timeline-subtitle">SystemTron</p>
+                        <div class="timeline-date">May 2024 – Present</div>
+                        <h3 class="timeline-title">Backend Developer Intern</h3>
+                        <p class="timeline-subtitle">Sada Smart Solution LLP</p>
                         <div class="timeline-desc">
-                            <p>Built a Django REST reporting API that replaced manual Excel workflows (‑40% human hours). Designed a GitHub Actions pipeline that cut deployment time by 80%.</p>
+                            <p>Maintain & extend a live Gym Management Access-Control SaaS (Django + DRF). Integrated ZKBio biometric API for real-time door permissions. Added audit logging that cut root-cause analysis time by 60%.</p>
                         </div>
                     </div>
                     <div class="timeline-dot"></div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="timeline-date">2023 – Present</div>
-                        <h3 class="timeline-title">Freelance Back-End Engineer</h3>
-                        <p class="timeline-subtitle">Self-employed</p>
+                        <div class="timeline-date">Jun – Jul 2024</div>
+                        <h3 class="timeline-title">Python Developer Intern</h3>
+                        <p class="timeline-subtitle">SystemTron</p>
                         <div class="timeline-desc">
-                            <p>Integrated Razorpay & Stripe in three client projects, managing webhook security and ledger reconciliation. Implemented Redis‑backed caching layers, achieving up to 3× latency reduction on high‑traffic endpoints.</p>
+                            <p>Built CustomTkinter games & utilities (Snake, Connect 4, Tic-Tac-Toe, Analog Clock). Developed CSV/report exports & REST endpoints, replacing ~40% manual Excel work.</p>
                         </div>
                     </div>
                     <div class="timeline-dot"></div>
@@ -1454,9 +1514,9 @@
                             <p>A comprehensive gym management solution with biometric access control integration. The system handles member registrations, subscription management, and automated billing while providing real-time access control through ZKBio hardware integration.</p>
                         </div>
                         <div class="featured-tech">
-                            <span>Django + DRF</span>
-                            <span>Vanilla JS</span>
-                            <span>Redis</span>
+                            <span>Django</span>
+                            <span>DRF</span>
+                            <span>Tailwind</span>
                             <span>ZKBio API</span>
                         </div>
                         <div class="featured-links">
@@ -1479,15 +1539,15 @@
                     </div>
                     <div class="featured-content">
                         <div class="featured-tag">Featured Project</div>
-                        <h3 class="featured-title">Gradvy</h3>
+                        <h3 class="featured-title">Gradvy - Final-Year Capstone</h3>
                         <div class="featured-desc">
-                            <p>AI-powered learning platform that generates personalized learning paths, quizzes, and mock interviews for students. The platform includes labor market insights and automates CV forwarding to hiring partners, creating a seamless transition from education to employment.</p>
+                            <p>AI-powered learning platform that generates personalized learning paths, quizzes, and mock interviews for students. Features Judge0 for coding challenges, career insights, and automated résumé forwarding to hiring partners.</p>
                         </div>
                         <div class="featured-tech">
-                            <span>Next.js</span>
-                            <span>Tailwind CSS</span>
                             <span>Django</span>
-                            <span>OpenAI/Gemini</span>
+                            <span>DRF</span>
+                            <span>Tailwind</span>
+                            <span>OpenAI API</span>
                         </div>
                         <div class="featured-links">
                             <a href="#" class="featured-link">
@@ -1517,7 +1577,7 @@
                         </div>
                         <h3 class="project-title">Insta Clone</h3>
                         <p class="project-desc">
-                            Full-stack social app with real-time chat over Django Channels + WebSockets. Features optimized media handling and progressive-loading UI.
+                            Full-stack social app with real-time chat over Django Channels + WebSockets. Features follower system and responsive Tailwind UI.
                         </p>
                         <div class="project-links">
                             <a href="#" class="project-link"><i class="fas fa-link"></i></a>
@@ -1552,23 +1612,100 @@
                 <!-- Project Card 3 -->
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="images/project1/image copy.png" alt="AITM College Website">
+                        <img src="images/project1/image copy.png" alt="SystemTron Game Suite">
                     </div>
                     <div class="project-content">
                         <div class="project-tags">
-                            <span class="project-tag">Django</span>
-                            <span class="project-tag">Bootstrap</span>
-                            <span class="project-tag">jQuery</span>
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">CustomTkinter</span>
+                            <span class="project-tag">GUI</span>
                         </div>
-                        <h3 class="project-title">AITM College Website</h3>
+                        <h3 class="project-title">SystemTron Game Suite</h3>
                         <p class="project-desc">
-                            Comprehensive and user-friendly online platform for the college. Designed to provide essential information to students, faculty, and visitors.
+                            Collection of classic games (Snake, Connect 4, Tic-Tac-Toe) and an analog clock utility developed during my SystemTron internship.
                         </p>
                         <div class="project-links">
                             <a href="#" class="project-link"><i class="fas fa-link"></i></a>
                             <a href="#" class="project-link"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="section" id="certifications">
+        <div class="container">
+            <h2 class="section-title gradient-text fade-in">Certifications & Learning</h2>
+            
+            <div class="certifications-container fade-in">
+                <div class="certifications-list">
+                    <h3 class="gradient-text-accent">Completed Certifications</h3>
+                    <ul class="cert-list">
+                        <li class="cert-item">
+                            <i class="fas fa-certificate"></i>
+                            <div class="cert-content">
+                                <h4>Python Beginner, Intermediate & Advanced</h4>
+                                <p>SoloLearn</p>
+                            </div>
+                        </li>
+                        <li class="cert-item">
+                            <i class="fas fa-certificate"></i>
+                            <div class="cert-content">
+                                <h4>Java Beginner</h4>
+                                <p>SoloLearn</p>
+                            </div>
+                        </li>
+                        <li class="cert-item">
+                            <i class="fas fa-certificate"></i>
+                            <div class="cert-content">
+                                <h4>JavaScript Beginner</h4>
+                                <p>SoloLearn</p>
+                            </div>
+                        </li>
+                        <li class="cert-item">
+                            <i class="fas fa-certificate"></i>
+                            <div class="cert-content">
+                                <h4>Django Masterclass</h4>
+                                <p>Ashutosh Pawar (in progress)</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="learning-goals">
+                    <h3 class="gradient-text-accent">Current Learning Goals</h3>
+                    <ul class="goals-list">
+                        <li class="goal-item">
+                            <i class="fas fa-bullseye"></i>
+                            <div class="goal-content">
+                                <h4>Redis Caching</h4>
+                                <p>For high-traffic queries optimization</p>
+                            </div>
+                        </li>
+                        <li class="goal-item">
+                            <i class="fas fa-bullseye"></i>
+                            <div class="goal-content">
+                                <h4>CI/CD Pipeline Implementation</h4>
+                                <p>To automate Django test suites and deployments</p>
+                            </div>
+                        </li>
+                        <li class="goal-item">
+                            <i class="fas fa-bullseye"></i>
+                            <div class="goal-content">
+                                <h4>Software Design Patterns</h4>
+                                <p>For larger Django applications</p>
+                            </div>
+                        </li>
+                        <li class="goal-item">
+                            <i class="fas fa-bullseye"></i>
+                            <div class="goal-content">
+                                <h4>Next.js Mastery</h4>
+                                <p>For building modern, performant front-end applications</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -1592,31 +1729,31 @@
                                 <span class="contact-value">azaanpeshmam45@gmail.com</span>
                             </div>
                         </a>
-                        <a href="https://linkedin.com/in/azaanpeshmam" class="contact-link">
+                        <a href="tel:+918431821788" class="contact-link">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-info">
+                                <span class="contact-label">Phone</span>
+                                <span class="contact-value">+91 84318 21788</span>
+                            </div>
+                        </a>
+                        <a href="https://linkedin.com/in/mohammed-azaan-peshmam-579560280" class="contact-link">
                             <div class="contact-icon">
                                 <i class="fab fa-linkedin-in"></i>
                             </div>
                             <div class="contact-info">
                                 <span class="contact-label">LinkedIn</span>
-                                <span class="contact-value">azaanpeshmam</span>
+                                <span class="contact-value">mohammed-azaan-peshmam</span>
                             </div>
                         </a>
-                        <a href="https://github.com/azaanpeshmam" class="contact-link">
+                        <a href="https://github.com/mohd-azaan" class="contact-link">
                             <div class="contact-icon">
                                 <i class="fab fa-github"></i>
                             </div>
                             <div class="contact-info">
                                 <span class="contact-label">GitHub</span>
-                                <span class="contact-value">azaanpeshmam</span>
-                            </div>
-                        </a>
-                        <a href="https://www.instagram.com/mohd__azaan" class="contact-link">
-                            <div class="contact-icon">
-                                <i class="fab fa-instagram"></i>
-                            </div>
-                            <div class="contact-info">
-                                <span class="contact-label">Instagram</span>
-                                <span class="contact-value">mohd__azaan</span>
+                                <span class="contact-value">mohd-azaan</span>
                             </div>
                         </a>
                     </div>
@@ -1652,12 +1789,12 @@
             <div class="footer-content">
                 <div class="footer-info">
                     <div class="footer-logo">Mohammed Azaan</div>
-                    <p class="footer-text">A full‑stack problem‑solver, open‑source tinkerer, and third‑year Computer‑Science undergrad passionate about clean code and scalable solutions.</p>
+                    <p class="footer-text">A third‑year Computer‑Science undergrad passionate about Python-powered back‑ends with Django & DRF, robust API integrations, and Tailwind-styled UIs.</p>
                     <div class="footer-socials">
-                        <a href="https://github.com/azaanpeshmam" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="https://linkedin.com/in/azaanpeshmam" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.instagram.com/mohd__azaan" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://github.com/mohd-azaan" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/mohammed-azaan-peshmam-579560280" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                         <a href="mailto:azaanpeshmam45@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                        <a href="tel:+918431821788" class="social-link"><i class="fas fa-phone-alt"></i></a>
                     </div>
                 </div>
                 <div class="footer-nav">
@@ -1666,15 +1803,16 @@
                         <li><a href="#about" class="footer-link"><i class="fas fa-chevron-right"></i> About</a></li>
                         <li><a href="#experience" class="footer-link"><i class="fas fa-chevron-right"></i> Experience</a></li>
                         <li><a href="#projects" class="footer-link"><i class="fas fa-chevron-right"></i> Projects</a></li>
+                        <li><a href="#certifications" class="footer-link"><i class="fas fa-chevron-right"></i> Certifications</a></li>
                         <li><a href="#contact" class="footer-link"><i class="fas fa-chevron-right"></i> Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-nav">
                     <h4>Core Values</h4>
                     <ul class="footer-links">
+                        <li><a href="#" class="footer-link"><i class="fas fa-check"></i> Readability First</a></li>
                         <li><a href="#" class="footer-link"><i class="fas fa-check"></i> Reliability</a></li>
-                        <li><a href="#" class="footer-link"><i class="fas fa-check"></i> Documentation First</a></li>
-                        <li><a href="#" class="footer-link"><i class="fas fa-check"></i> Mentorship</a></li>
+                        <li><a href="#" class="footer-link"><i class="fas fa-check"></i> Continuous Improvement</a></li>
                         <li><a href="#" class="footer-link"><i class="fas fa-check"></i> User Empathy</a></li>
                     </ul>
                 </div>
