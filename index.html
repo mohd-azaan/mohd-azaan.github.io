@@ -1,179 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohammed Azaan - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Slackey&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Slackey&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chango&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        dark: "#0F172A",
+                        light: "#F8FAFC",
+                        primary: "#3B82F6",
+                        secondary: "#10B981",
+                        accent: "#8B5CF6",
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
+                        'fade-in': 'fadeIn 1.5s ease-in-out',
+                        'slide-up': 'slideUp 1s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(50px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
+                    }
+                },
+            },
+        };
+    </script>
     <style>
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #000;
-            color: #fff;
-            line-height: 1.6;
-            overflow-x: hidden;
-            transition: opacity 1s ease;
-        }
-
-        .about-link {
-            text-decoration: none;
-            color: #fff;
-            font-size: 1.2rem;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .about-link:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: scale(1.05);
-        }
-
-        .mobile {
-            display: flex;
-            text-align: start;
-            width: 30%;
-        }
-
-        .mobile-right {
-            justify-content: end;
-            display: flex;
-            text-align: end;
-            width: 30%;
-        }
-
-        h2 {
-            text-align: center;
-            margin-top: 200px;
-            margin-bottom: 100px;
-            font-size: xxx-large;
-            font-family: 'Playfair Display', serif;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease;
-        }
-
-        h2.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        #Namelink {
-            font-family: 'Playfair Display', serif;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        #aboutLink {
-            font-family: 'Playfair Display', serif;
-        }
-
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            z-index: 1000;
-            backdrop-filter: blur(10px); /* Apply blur effect */
-            -webkit-backdrop-filter: blur(10px); /* For Safari */
+        /* Custom styles that can't be easily achieved with Tailwind */
+        html {
+            scroll-behavior: smooth;
         }
         
-
-        .landing {
-            position: fixed;
-            top: 0;
-            left: 0;
+        .gradient-text {
+            background: linear-gradient(90deg, #3B82F6, #8B5CF6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #3B82F6;
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
             width: 100%;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            z-index: -1;
-            transition: opacity 1s ease;
         }
-
-        .landing-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-            filter: brightness(0.6);
+        
+        .carousel {
+            scroll-snap-type: x mandatory;
         }
-
-        .landing-content {
-            text-align: center;
-            z-index: 1;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease;
+        
+        .carousel-item {
+            scroll-snap-align: start;
         }
-
-        .landing-content.show {
-            opacity: 1;
-            transform: translateY(0);
+        
+        .bg-blur {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
-
-        .landing-content h1 {
-            font-family: 'Exo 2', sans-serif;
-            font-size: 4rem;
-            color: #fff;
-            line-height: 1;
-        }
-
-        .details-section-1 {
-            align-items: center;
-            text-align: start;
-            bottom: 50px;
-            right: 10px;
-        }
-
-        .details-section-2 {
-            align-items: center;
-            text-align: end;
-            bottom: 50px;
-            right: 10px;
-        }
-
-        .landing-content p {
-            font-size: 1.5rem;
-            color: #ccc;
-        }
-
+        
         .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
             animation: bounce 2s infinite;
-            color: #fff;
-            font-size: 2rem;
-            opacity: 0.7;
         }
-
+        
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {
                 transform: translateY(0);
@@ -185,750 +106,658 @@
                 transform: translateY(-10px);
             }
         }
-
-        .details-section {
-            font-family: 'Lora', serif;
-            position: absolute;
-            bottom: 20px;
-            display: flex;
-            flex-direction: row;
-            font-size: 1rem;
-            color: #ccc;
-            z-index: 1;
-        }
-
-        .details-section div {
-            margin: 15px;
-            max-width: 300px;
-        }
-
-        .upper-even {
-            display: flex;
-            flex-direction: row-reverse;
-        }
-
-        .projects {
-            padding: 40px;
-            margin-top: 100vh;
-            position: relative;
-            z-index: 1;
-        }
-
-        .project {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            margin-bottom: 100px;
-            opacity: 0;
-            transform: translateY(100px);
-            transition: all 1s ease;
-            background: transparent;
-        }
-
-        .project:last-child {
-            margin-bottom: 50px;
-        }
-
-        .project.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .project-year {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 1.2rem;
-            color: #ccc;
-        }
-
-        .project-year-right {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 1.2rem;
-            color: #ccc;
-        }
-
-        .project-title-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .project-title-container-right {
-            display: flex;
-            text-align: end;
-            flex-direction: column;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .project-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: #fff;
-            justify-content: center;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-carousel {
-            width: 70%;
-            position: relative;
-        }
-
-        .upper {
-            display: flex;
-        }
-
-        .carousel {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-        }
-
-        .carousel-inner {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .carousel-item {
-            min-width: 100%;
-            position: relative;
-        }
-
-        .carousel img {
-            width: 100%;
-            padding-inline: 10px;
-            object-fit: cover;
-        }
-
-        .carousel-nav {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .project-carousel:hover .carousel-nav {
-            opacity: 1;
-        }
-
-        .carousel-nav button {
-            background: rgba(255, 255, 255, 0.3);
-            border: none;
-            color: #fff;
-            font-size: 3rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .carousel-nav button:hover {
-            background: rgba(255, 255, 255, 0.5);
-            transform: scale(1.1);
-        }
-
-        .project-details {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        .project-details-role,
-        .project-details-description,
-        .project-details-links {
-            width: 30%;
-            padding: 20px;
-        }
-
-        .project-details-role {
-            font-family: 'Roboto', sans-serif;
-            font-size: 1rem;
-            color: #ccc;
-        }
-
-        .project-details-description {
-            font-family: 'Lora', serif;
-            font-size: 1rem;
-            color: #ccc;
-        }
-
-        .project-details-links {
-            font-family: 'Roboto', sans-serif;
-            font-size: 1rem;
-            color: #ccc;
-            text-align: right;
-        }
-
-        .project-details-links p {
-            margin-bottom: 10px;
-        }
-
-        .project-details-links a {
-            display: block;
-            margin-bottom: 5px;
-            color: #ccc;
-            text-decoration: none;
-            font-size: 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .project-details-links a:hover {
-            color: #fff;
-        }
-
-        .read-more {
-            color: #fff;
-            cursor: pointer;
-            text-decoration: none;
-            margin-top: 10px;
-            display: inline-block;
-            background-color: #575656;
-            padding: 5px 10px;
-            border-radius: 5px;  
-        }
-
-        .read-more:hover {
-            color: #fff;
-        }
-
-        @media (max-width: 768px) {
-            .project {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .mobile-right {
-                text-align: center;
-                width: 100%;
-                display: flex;
-                flex-direction: column-reverse;
-            }
-
-            .project-title-container {
-                text-align: center;
-            }
-
-            .project-title-container-right {
-                text-align: center;
-            }
-
-            .upper {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .upper-even {
-                display: flex;
-                flex-direction: column;
-            }
-
-            .project-title-container,
-            .project-title-container-right,
-            .project-carousel {
-                width: 100%;
-            }
-
-            .projects {
-                padding: 10px;
-            }
-
-            .project-details {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .project-details-role,
-            .project-details-description,
-            .project-details-links {
-                width: 100%;
-                text-align: center;
-            }
-
-            .details-section-1 {
-                align-items: center;
-                text-align: start;
-                bottom: 50px;
-                right: 10px;
-            }
-
-            .details-section-2 {
-                align-items: center;
-                text-align: end;
-                bottom: 50px;
-                right: 10px;
-            }
-
-            .scroll-indicator {
-                margin-bottom: 30px;
-                left: 48%;
-            }
-
-            .details-section {
-                margin-bottom: 50px;
-            }
-
-            .mobile {
-                display: flex;
-                flex-direction: column-reverse;
-                width: 100%;
-            }
-
-            .project-year {
-                text-align: center;
-                left: 50%;
-                position: static;
-                margin-top: 10px;
-                margin-bottom: 30px;
-            }
-
-            .project-year-right {
-                position: static;
-                text-align: center;
-                right: 50%;
-                margin-top: 10px;
-                margin-bottom: 30px;
-            }
-
-            .project-details-description {
-                text-align: start;
-            }
-        }
-
-        .name-title {
-            margin-top: -80px;
-            font-family: "Chango", serif;
-            font-size: 3rem;
-            color: #fff;
-            line-height: 1;
-            font-weight: 100;
-        }
-        .profession{
-            font-family: "Tinos", serif;
-            font-weight: 400;
-        }
-        .profile-container {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .fade-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: #000;
-            opacity: 0;
-            transition: opacity 1s ease;
-            z-index: -2;
-        }
-
-        .profile-image {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            border: 2px solid #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .contact-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: transparent;
-            opacity: 0;
-            transform: translateY(100px);
-            transition: all 1s ease;
-        }
-
-        .contact-section.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .contact-links {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            position: relative;
-        }
-
-        .contact-link {
-            font-size: 1.2rem;
-            padding: 10px 20px;
-            color: #fff;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-
-        .contact-link i {
-            margin-right: 10px;
-            font-size: 1.5rem;
-        }
-
-        .contact-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background-color: #00aaff;
-            transition: width 0.3s ease;
-        }
-
-        .contact-link:hover::after {
-            width: 100%;
-        }
-
-        .contact-link:hover {
-            color: #00aaff;
-            transform: scale(1.05);
-        }
     </style>
 </head>
-<body>
+<body class="bg-dark text-light overflow-x-hidden">
     <!-- Navbar -->
-    <div class="navbar">
-        <a href="index.html" class="about-link" id="Namelink">Mohammed Azaan</a>
-        <a href="about.html" class="about-link" id="aboutLink">About</a>
-    </div>
-
-    <!-- Landing Section -->
-    <div class="landing">
-        <video class="landing-video" autoplay loop muted>
-            <source src="video/portfolio_background.mp4" type="video/mp4">
-        </video>
-        <div class="landing-content">
-            <div class="profile-container">
-                <div class="name-title">Mohammed Azaan</div>
-                <p class="profession" style="margin-top: 10px ;">Software Engineer</p>
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-blur bg-dark/80 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#hero" class="text-xl font-serif font-bold transition duration-300 hover:text-primary">
+                Mohammed Azaan
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#projects" class="nav-link text-light/80 hover:text-primary transition duration-300">Projects</a>
+                <a href="#about" class="nav-link text-light/80 hover:text-primary transition duration-300">About</a>
+                <a href="#contact" class="nav-link text-light/80 hover:text-primary transition duration-300">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-light focus:outline-none" id="menuBtn">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-dark/95 bg-blur py-4 px-6" id="mobileMenu">
+            <div class="flex flex-col space-y-4">
+                <a href="#projects" class="text-light/80 hover:text-primary py-2 transition duration-300">Projects</a>
+                <a href="#about" class="text-light/80 hover:text-primary py-2 transition duration-300">About</a>
+                <a href="#contact" class="text-light/80 hover:text-primary py-2 transition duration-300">Contact</a>
             </div>
         </div>
-        <div class="scroll-indicator">↓</div>
-        <div class="details-section">
-            <div class="details-section-1">
-                Currently a student pursuing a degree in Computer Science. Passionate about web development and design.
-            </div>
-            <div class="details-section-2">
-                Clients include various startups and small businesses. Focused on delivering high-quality, responsive web solutions.
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <video autoplay loop muted playsinline class="w-full h-full object-cover opacity-40">
+                <source src="video/portfolio_background.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-b from-dark/30 to-dark"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 z-10">
+            <div class="max-w-3xl mx-auto text-center" data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="text-5xl md:text-7xl font-serif font-bold mb-4">
+                    Mohammed <span class="gradient-text">Azaan</span>
+                </h1>
+                <p class="text-xl md:text-2xl font-light mb-8 text-light/80">Software Engineer & Web Developer</p>
+                <div class="flex flex-col md:flex-row justify-center gap-4 mt-8">
+                    <a href="#projects" class="btn px-8 py-3 bg-primary hover:bg-primary/90 text-white rounded-full font-medium transition duration-300 transform hover:scale-105">
+                        View Projects
+                    </a>
+                    <a href="#contact" class="btn px-8 py-3 bg-transparent border-2 border-light/30 hover:border-primary/70 text-light hover:text-primary rounded-full font-medium transition duration-300 transform hover:scale-105">
+                        Get in Touch
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-
-    <!-- Fade Overlay -->
-    <div class="fade-overlay"></div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-4xl text-light/50 scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+        
+        <!-- Background Info -->
+        <div class="absolute bottom-10 w-full px-6 md:px-16">
+            <div class="container mx-auto flex flex-col md:flex-row justify-between items-center text-light/70 text-sm">
+                <p class="mb-4 md:mb-0 max-w-xs" data-aos="fade-right" data-aos-duration="1000">
+                    Currently a student pursuing a degree in Computer Science. Passionate about web development and design.
+                </p>
+                <p class="max-w-xs text-right" data-aos="fade-left" data-aos-duration="1000">
+                    Clients include various startups and small businesses. Focused on delivering high-quality, responsive web solutions.
+                </p>
+            </div>
+        </div>
+    </section>
 
     <!-- Projects Section -->
-    <div class="projects">
-        <h2>Web Development Projects</h2>
-        <div>
-            <div class="project" id="project1">
-                <div class="upper">
-                    <div class="mobile">
-                        <div class="project-year">2024</div>
-                        <div class="project-title-container">
-                            <div class="project-title">AITM College Website</div>
-                        </div>
-                    </div>
-                    <div class="project-carousel">
-                        <div class="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item">
-                                    <img src="images/project1/image copy.png" alt="Project 1 Image 1">
+    <section id="projects" class="py-20 md:py-32 relative">
+        <div class="container mx-auto px-6">
+            <!-- Web Development Projects -->
+            <div class="mb-20">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-16 text-center" data-aos="fade-up">
+                    <span class="gradient-text">Web Development</span> Projects
+                </h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mt-12">
+                    <!-- AITM College Website -->
+                    <div class="project-card bg-dark/50 rounded-xl overflow-hidden shadow-xl" data-aos="fade-up">
+                        <div class="relative">
+                            <div class="carousel overflow-x-auto flex scrollbar-hide snap-x">
+                                <div class="carousel-item flex-shrink-0 w-full">
+                                    <img src="images/project1/image.png" alt="AITM College Website" class="w-full h-64 object-cover">
                                 </div>
-                                <div class="carousel-item">
-                                    <img src="images/project1/image.png" alt="Project 1 Image 2">
+                                <div class="carousel-item flex-shrink-0 w-full">
+                                    <img src="images/project1/image copy.png" alt="AITM College Website" class="w-full h-64 object-cover">
+                                </div>
+                            </div>
+                            <div class="carousel-nav absolute inset-y-0 left-0 right-0 flex justify-between items-center px-4 opacity-0 transition-opacity duration-300 hover:opacity-100">
+                                <button class="prev-btn p-2 rounded-full bg-black/50 text-white hover:bg-primary transition">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button class="next-btn p-2 rounded-full bg-black/50 text-white hover:bg-primary transition">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                            <div class="absolute top-4 left-4 bg-primary/90 text-white text-xs px-2 py-1 rounded">2024</div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-serif font-bold mb-2">AITM College Website</h3>
+                            <p class="text-light/70 mb-4 text-sm">
+                                A comprehensive and user-friendly online platform for the college, providing essential information to students, faculty, and visitors.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-primary/20 text-primary text-xs rounded-full">Backend Development</span>
+                                <span class="px-3 py-1 bg-accent/20 text-accent text-xs rounded-full">Node.js</span>
+                                <span class="px-3 py-1 bg-secondary/20 text-secondary text-xs rounded-full">Responsive Design</span>
+                            </div>
+                            <div class="project-details mt-4 pt-4 border-t border-light/10">
+                                <button class="read-more text-primary hover:text-primary/80 text-sm transition-colors duration-300 flex items-center" id="read-more-1">
+                                    <span>Read More</span>
+                                    <i class="fas fa-chevron-down ml-2 transition-transform duration-300"></i>
+                                </button>
+                                <div class="project-details-content hidden mt-4 text-sm text-light/70" id="details-content-1">
+                                    <p class="mb-2">
+                                        The website includes an interactive course catalog, allowing students to browse through various courses offered by the college. Each course listing includes detailed descriptions, prerequisites, and contact information for instructors.
+                                    </p>
+                                    <p class="mb-2">
+                                        There's also a dedicated section for campus life, highlighting student activities, clubs, and events to foster a sense of community among students.
+                                    </p>
+                                    <p>
+                                        To ensure accessibility, the website was designed to be responsive and compatible with various devices, incorporating SEO best practices to improve visibility on search engines.
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                        <div class="carousel-nav">
-                            <button class="prev-btn">&lt;</button>
-                            <button class="next-btn">&gt;</button>
+                    </div>
+                    
+                    <!-- UniTech Business Portfolio -->
+                    <div class="project-card bg-dark/50 rounded-xl overflow-hidden shadow-xl" data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative">
+                            <div class="carousel overflow-x-auto flex scrollbar-hide snap-x">
+                                <div class="carousel-item flex-shrink-0 w-full">
+                                    <img src="images/project2/image.png" alt="UniTech Business Portfolio" class="w-full h-64 object-cover">
+                                </div>
+                                <div class="carousel-item flex-shrink-0 w-full">
+                                    <img src="images/project2/image copy.png" alt="UniTech Business Portfolio" class="w-full h-64 object-cover">
+                                </div>
+                                <div class="carousel-item flex-shrink-0 w-full">
+                                    <img src="images/project2/image copy 2.png" alt="UniTech Business Portfolio" class="w-full h-64 object-cover">
+                                </div>
+                            </div>
+                            <div class="carousel-nav absolute inset-y-0 left-0 right-0 flex justify-between items-center px-4 opacity-0 transition-opacity duration-300 hover:opacity-100">
+                                <button class="prev-btn p-2 rounded-full bg-black/50 text-white hover:bg-primary transition">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button class="next-btn p-2 rounded-full bg-black/50 text-white hover:bg-primary transition">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                            <div class="absolute top-4 left-4 bg-primary/90 text-white text-xs px-2 py-1 rounded">2024</div>
                         </div>
-                    </div>
-                </div>
-    
-                <div class="project-details">
-                    <div class="project-details-role">
-                        <p><b>Backend Developer</b></p>
-                        <p></p>
-                    </div>
-                    <div class="project-details-description">
-                        <p>
-                            The AITM College Website project involved creating a comprehensive and user-friendly online platform for the college. The website was designed to provide essential information to students, faculty, and visitors, including academic programs, campus facilities, and important announcements.
-                        </p>
-                        <p id="read-more-content-1" style="display: none;">
-                            One of the key features of the website is the interactive course catalog, which allows students to browse through various courses offered by the college. Each course listing includes detailed descriptions, prerequisites, and contact information for the course instructors.
-                        </p>
-                        <p id="read-more-content-2" style="display: none;">
-                            The website also includes a dedicated section for campus life, highlighting student activities, clubs, and events. This section aims to foster a sense of community among students and encourage participation in extracurricular activities.
-                        </p>
-                        <p id="read-more-content-3" style="display: none;">
-                            To ensure accessibility, the website was designed to be responsive and compatible with various devices, including desktops, tablets, and smartphones. Additionally, the website incorporates SEO best practices to improve its visibility on search engines.
-                        </p>
-                        <span class="read-more" id="read-more-1">Read More ↓</span>
-                    </div>
-                    <div class="project-details-links">
-
+                        <div class="p-6">
+                            <h3 class="text-xl font-serif font-bold mb-2">UniTech Business Portfolio</h3>
+                            <p class="text-light/70 mb-4 text-sm">
+                                A professional business portfolio website showcasing UniTech's corporate identity, innovative services, and technological solutions.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 bg-primary/20 text-primary text-xs rounded-full">Full Stack</span>
+                                <span class="px-3 py-1 bg-accent/20 text-accent text-xs rounded-full">React</span>
+                                <span class="px-3 py-1 bg-secondary/20 text-secondary text-xs rounded-full">UI/UX Design</span>
+                            </div>
+                            <div class="project-details mt-4 pt-4 border-t border-light/10">
+                                <button class="read-more text-primary hover:text-primary/80 text-sm transition-colors duration-300 flex items-center" id="read-more-2">
+                                    <span>Read More</span>
+                                    <i class="fas fa-chevron-down ml-2 transition-transform duration-300"></i>
+                                </button>
+                                <div class="project-details-content hidden mt-4 text-sm text-light/70" id="details-content-2">
+                                    <p class="mb-2">
+                                        Developed with a focus on clean, modern design and exceptional user experience, this portfolio site effectively communicates UniTech's brand values and technological capabilities.
+                                    </p>
+                                    <p class="mb-2">
+                                        The site features responsive design, smooth animations, and interactive elements that engage visitors while showcasing the company's projects and services.
+                                    </p>
+                                    <p>
+                                        Implementation includes advanced filtering for portfolio items, detailed case studies, and integrated contact forms with validation.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="project" id="project2">
-                <div class="upper-even">
-                    <div class="mobile-right">
-                        <div class="project-year-right">2024</div>
-                        <div class="project-title-container-right">
-                            <div class="project-title">UniTech Business Portfolio</div>
+            
+            <!-- Software Development Projects -->
+            <div>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-16 text-center" data-aos="fade-up">
+                    <span class="gradient-text">Software Development</span> Projects
+                </h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mt-12">
+                    <!-- VoteEase -->
+                    <div class="lg:col-span-2 project-card bg-dark/50 rounded-xl overflow-hidden shadow-xl" data-aos="fade-up">
+                        <div class="relative">
+                            <div class="carousel overflow-x-auto flex scrollbar-hide snap-x">
+                                <div class="carousel-item flex-shrink-0 w-full">
+                                    <img src="images/voting/shall.jpeg" alt="VoteEase Screenshot" class="w-full h-80 object-cover">
+                                </div>
+                                <div class="carousel-item flex-shrink-0 w-full">
+                                    <img src="images/voting/voting image 3.jpeg" alt="VoteEase Screenshot" class="w-full h-80 object-cover">
+                                </div>
+                                <div class="carousel-item flex-shrink-0 w-full">
+                                    <img src="images/voting/voting image 2.jpeg" alt="VoteEase Screenshot" class="w-full h-80 object-cover">
+                                </div>
+                                <div class="carousel-item flex-shrink-0 w-full">
+                                    <img src="images/voting/voting image 1.jpeg" alt="VoteEase Screenshot" class="w-full h-80 object-cover">
+                                </div>
+                            </div>
+                            <div class="carousel-nav absolute inset-y-0 left-0 right-0 flex justify-between items-center px-4 opacity-0 transition-opacity duration-300 hover:opacity-100">
+                                <button class="prev-btn p-2 rounded-full bg-black/50 text-white hover:bg-primary transition">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button class="next-btn p-2 rounded-full bg-black/50 text-white hover:bg-primary transition">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                            <div class="absolute top-4 left-4 bg-primary/90 text-white text-xs px-2 py-1 rounded">2024</div>
                         </div>
-                    </div>
-                    <div class="project-carousel">
-                        <div class="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item">
-                                    <img src="images/project2/image copy.png" alt="Project 2 Image 1">
+                        <div class="p-6">
+                            <div class="md:flex justify-between items-start">
+                                <div class="mb-4 md:mb-0 md:w-1/2 pr-6">
+                                    <h3 class="text-2xl font-serif font-bold mb-2">VoteEase: Digital Voting Software</h3>
+                                    <p class="text-light/70 mb-4">
+                                        "VoteEase" revolutionized elections for our college governing council, ensuring a smooth voting process for over 500 voters with results announced in just 20 minutes.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="px-3 py-1 bg-primary/20 text-primary text-xs rounded-full">Lead Developer</span>
+                                        <span class="px-3 py-1 bg-accent/20 text-accent text-xs rounded-full">Python</span>
+                                        <span class="px-3 py-1 bg-secondary/20 text-secondary text-xs rounded-full">Tkinter</span>
+                                        <span class="px-3 py-1 bg-amber-500/20 text-amber-500 text-xs rounded-full">Database Design</span>
+                                    </div>
                                 </div>
-                                <div class="carousel-item">
-                                    <img src="images/project2/image copy 2.png" alt="Project 2 Image 2">
+                                <div class="md:w-1/2 pl-0 md:pl-6 border-t md:border-t-0 md:border-l border-light/10 pt-4 md:pt-0">
+                                    <h4 class="text-lg font-medium mb-2">Featured In</h4>
+                                    <div class="flex flex-col gap-2">
+                                        <a href="https://sahilonline.org/bhatkal-anjuman-elections-computerized-voting-app-delivers-rapid-results" target="_blank" class="text-primary hover:text-primary/80 flex items-center transition-colors duration-300">
+                                            <i class="fas fa-newspaper mr-2"></i>
+                                            <span>Sahil Online News</span>
+                                        </a>
+                                        <a href="https://www.youtube.com/watch?v=kpg6CIX-Z04" target="_blank" class="text-primary hover:text-primary/80 flex items-center transition-colors duration-300">
+                                            <i class="fab fa-youtube mr-2"></i>
+                                            <span>YouTube</span>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="carousel-item">
-                                    <img src="images/project2/image.png" alt="Project 2 Image 3">
+                            </div>
+                            <div class="project-details mt-6 pt-4 border-t border-light/10">
+                                <button class="read-more text-primary hover:text-primary/80 text-sm transition-colors duration-300 flex items-center" id="read-more-3">
+                                    <span>Read More</span>
+                                    <i class="fas fa-chevron-down ml-2 transition-transform duration-300"></i>
+                                </button>
+                                <div class="project-details-content hidden mt-4 text-sm text-light/70" id="details-content-3">
+                                    <p class="mb-2">
+                                        Adopted by BMJD and YMSA Sports Club, the software handled over 1,200 voters, eliminating invalid votes and offering unparalleled efficiency.
+                                    </p>
+                                    <p class="mb-2">
+                                        Built with Python's custom Tkinter framework, it marked a new era of trust and digital transformation in local elections.
+                                    </p>
+                                    <p>
+                                        The system provides real-time tracking of voter turnout, automated result calculation, and comprehensive reporting features while maintaining security and voter privacy.
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                        <div class="carousel-nav">
-                            <button class="prev-btn">&lt;</button>
-                            <button class="next-btn">&gt;</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-details">
-                    <div class="project-details-role">
-                        <p><b>Full Stack</b></p>
-                        <p></p>
-                    </div>
-                    <div class="project-details-description">
-                        <p>
-                            A professional business portfolio website showcasing UniTech's corporate identity, innovative services, and technological solutions. Developed with a focus on clean, modern design and user experience.
-                        </p>
-                    </div>
-                    <div class="project-details-links">
-
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <h2>Software Development Projects</h2>
-        <div>
-            <div class="project" id="project3">
-                <div class="upper">
-                    <div class="mobile">
-                        <div class="project-year">2024</div>
-                        <div class="project-title-container">
-                            <div class="project-title">VoteEase: Digital Voting Software</div>
+    <!-- About Section -->
+    <section id="about" class="py-20 md:py-32 bg-gradient-to-b from-dark to-dark/80 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold mb-16 text-center" data-aos="fade-up">
+                About <span class="gradient-text">Me</span>
+            </h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row items-center gap-10">
+                    <div class="md:w-1/3" data-aos="fade-right">
+                        <div class="rounded-full overflow-hidden border-4 border-primary/30 shadow-lg h-60 w-60 mx-auto">
+                            <img src="/api/placeholder/400/400" alt="Mohammed Azaan" class="object-cover w-full h-full">
                         </div>
                     </div>
-
-                    <div class="project-carousel">
-                        <div class="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item">
-                                    <img src="images/voting/shall.jpeg" alt="Project 1 Image 1">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/voting/voting image 3.jpeg" alt="Project 1 Image 2">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/voting/voting image 2.jpeg" alt="Project 1 Image 2">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="images/voting/voting image 1.jpeg" alt="Project 1 Image 2">
-                                </div>
+                    
+                    <div class="md:w-2/3" data-aos="fade-left">
+                        <p class="text-light/80 mb-4">
+                            I'm a passionate Software Engineer currently pursuing a degree in Computer Science. With expertise in both web and software development, I enjoy creating elegant, user-friendly solutions that solve real-world problems.
+                        </p>
+                        <p class="text-light/80 mb-4">
+                            My journey in technology began with a fascination for building things that people can interact with. This led me to explore various programming languages and frameworks, ultimately specializing in full-stack web development and application design.
+                        </p>
+                        <p class="text-light/80">
+                            When I'm not coding, I'm expanding my knowledge through online courses, contributing to open-source projects, and collaborating with local businesses to help them establish their digital presence.
+                        </p>
+                        
+                        <div class="mt-8">
+                            <h3 class="text-xl font-semibold mb-4">Skills & Technologies</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">JavaScript</span>
+                                <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Python</span>
+                                <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">React</span>
+                                <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Node.js</span>
+                                <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Tailwind CSS</span>
+                                <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">MongoDB</span>
+                                <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">UI/UX Design</span>
+                                <span class="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full">Responsive Design</span>
                             </div>
-                        </div>
-                        <div class="carousel-nav">
-                            <button class="prev-btn">&lt;</button>
-                            <button class="next-btn">&gt;</button>
                         </div>
                     </div>
                 </div>
-
-                <div class="project-details">
-                    <div class="project-details-role">
-                        <p><b>Lead Developer</b></p>
-                        <p></p>
+                
+                <!-- Education & Experience -->
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div data-aos="fade-up">
+                        <h3 class="text-xl font-semibold mb-6 flex items-center">
+                            <i class="fas fa-graduation-cap mr-3 text-primary"></i>
+                            Education
+                        </h3>
+                        <div class="space-y-6">
+                            <div class="border-l-2 border-primary/30 pl-4 pb-6">
+                                <h4 class="text-lg font-medium">Bachelor of Computer Science</h4>
+                                <p class="text-light/70 text-sm">University Name • 2022 - Present</p>
+                                <p class="text-light/60 text-sm mt-2">
+                                    Focusing on Software Engineering, Data Structures, and Web Technologies
+                                </p>
+                            </div>
+                            <div class="border-l-2 border-primary/30 pl-4">
+                                <h4 class="text-lg font-medium">High School Diploma</h4>
+                                <p class="text-light/70 text-sm">School Name • 2020 - 2022</p>
+                                <p class="text-light/60 text-sm mt-2">
+                                    Science and Mathematics with Computer Applications
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-details-description">
-                        <p>
-                            "VoteEase" revolutionized elections for our college governing council, ensuring a smooth voting process for over 500 voters with results announced in just 20 minutes.
-                        </p>
-                        <p id="read-more-content-4" style="display: none;">
-                            Adopted by BMJD and YMSA Sports Club, the software handled over 1,200 voters, eliminating invalid votes and offering unparalleled efficiency.
-                        </p>
-                        <p id="read-more-content-5" style="display: none;">
-                            Built with Python's custom Tkinter framework, it marked a new era of trust and digital transformation.
-                        </p>
-                        <span class="read-more" id="read-more-2">Read More ↓</span>
-                    </div>
-                    <div class="project-details-links">
-                        <h3>Press</h3>
-                        <a href="https://sahilonline.org/bhatkal-anjuman-elections-computerized-voting-app-delivers-rapid-results" target="_blank">Sahil Online News</a>
-                        <a href="https://www.youtube.com/watch?v=kpg6CIX-Z04" target="_blank">Youtube</a>
+                    
+                    <div data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-xl font-semibold mb-6 flex items-center">
+                            <i class="fas fa-briefcase mr-3 text-primary"></i>
+                            Experience
+                        </h3>
+                        <div class="space-y-6">
+                            <div class="border-l-2 border-primary/30 pl-4 pb-6">
+                                <h4 class="text-lg font-medium">Freelance Web Developer</h4>
+                                <p class="text-light/70 text-sm">Self-employed • 2022 - Present</p>
+                                <p class="text-light/60 text-sm mt-2">
+                                    Designing and developing responsive websites for local businesses and startups
+                                </p>
+                            </div>
+                            <div class="border-l-2 border-primary/30 pl-4">
+                                <h4 class="text-lg font-medium">Software Development Intern</h4>
+                                <p class="text-light/70 text-sm">Company Name • Summer 2023</p>
+                                <p class="text-light/60 text-sm mt-2">
+                                    Assisted in developing and testing web applications, collaborating with senior developers
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Contact Section -->
-    <div class="contact-section" id="contactSection">
-        <div class="contact-links">
-            <a href="mailto:azaanpeshmam45@gmail.com" class="contact-link">Email</a>
-            <a href="https://www.linkedin.com/in/mohammed-azaan-peshmam-579560280" target="_blank" class="contact-link">LinkedIn</a>
-            <a href="https://github.com/mohd-azaan" target="_blank" class="contact-link">Github</a>
-            <a href="https://www.instagram.com/mohd__azaan" target="_blank" class="contact-link">Instagram</a>
+    <section id="contact" class="py-20 md:py-32 relative">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold mb-16 text-center" data-aos="fade-up">
+                Get in <span class="gradient-text">Touch</span>
+            </h2>
+            
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div data-aos="fade-right">
+                    <h3 class="text-xl font-semibold mb-6">Let's Connect</h3>
+                    <p class="text-light/70 mb-8">
+                        I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out through any of these platforms.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <a href="mailto:azaanpeshmam45@gmail.com" class="flex items-center text-light/80 hover:text-primary transition duration-300">
+                            <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                                <i class="fas fa-envelope text-primary"></i>
+                            </div>
+                            <span>azaanpeshmam45@gmail.com</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/mohammed-azaan-peshmam-579560280" target="_blank" class="flex items-center text-light/80 hover:text-primary transition duration-300">
+                            <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                                <i class="fab fa-linkedin-in text-primary"></i>
+                            </div>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/mohd-azaan" target="_blank" class="flex items-center text-light/80 hover:text-primary transition duration-300">
+                            <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                                <i class="fab fa-github text-primary"></i>
+                            </div>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://www.instagram.com/mohd__azaan" target="_blank" class="flex items-center text-light/80 hover:text-primary transition duration-300">
+                            <div class="bg-primary/10 p-3 rounded-lg mr-4">
+                                <i class="fab fa-instagram text-primary"></i>
+                            </div>
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <h3 class="text-xl font-semibold mb-6">Send a Message</h3>
+                    <form id="contactForm" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-light/70 mb-1">Your Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg bg-light/5 border border-light/10 text-light focus:border-primary focus:outline-none transition" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-light/70 mb-1">Email Address</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg bg-light/5 border border-light/10 text-light focus:border-primary focus:outline-none transition" placeholder="john@example.com">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-light/70 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 rounded-lg bg-light/5 border border-light/10 text-light focus:border-primary focus:outline-none transition" placeholder="Your message here..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-6 py-3 bg-primary hover:bg-primary/90 text-white rounded-lg font-medium transition duration-300 transform hover:translate-y-1">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-dark/80">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-light/50 text-sm mb-4 md:mb-0">
+                    &copy; 2025 Mohammed Azaan. All rights reserved.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="mailto:azaanpeshmam45@gmail.com" class="text-light/50 hover:text-primary transition duration-300">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mohammed-azaan-peshmam-579560280" target="_blank" class="text-light/50 hover:text-primary transition duration-300">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/mohd-azaan" target="_blank" class="text-light/50 hover:text-primary transition duration-300">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.instagram.com/mohd__azaan" target="_blank" class="text-light/50 hover:text-primary transition duration-300">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-primary/90 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 transform hover:scale-110">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script>
-        // Scroll Animations
-        const landingContent = document.querySelector('.landing-content');
-        const projects = document.querySelectorAll('.project');
-        const fadeOverlay = document.querySelector('.fade-overlay');
-        const landingSection = document.querySelector('.landing');
-        const aboutLink = document.getElementById('aboutLink');
-        const nameLink = document.getElementById('Namelink');
-        const contactSection = document.querySelector('.contact-section');
-        const h2Elements = document.querySelectorAll('h2');
-        nameLink.style.opacity = 0;
-        const navbar = document.getElementsByClassName('navbar');
-
-        // Landing Content Animation
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                landingContent.classList.add('show');
-                nameLink.style.opacity = 1;
-            }, 500);
+        // Initialize AOS (Animate on Scroll)
+        AOS.init({
+            once: true,
+            offset: 120,
+            duration: 1000
         });
-
-        // Projects Scroll Animation
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
+        
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            // Change menu icon
+            const icon = menuBtn.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Hide mobile menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                const icon = menuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
             });
-        }, observerOptions);
-
-        projects.forEach(project => {
-            observer.observe(project);
         });
-
-        h2Elements.forEach(h2 => {
-            observer.observe(h2);
+        
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('py-2');
+                navbar.classList.remove('py-4');
+                navbar.classList.add('bg-dark/90');
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('py-2');
+                navbar.classList.add('py-4');
+                navbar.classList.remove('bg-dark/90');
+                navbar.classList.remove('shadow-md');
+            }
         });
-
+        
         // Carousel Navigation
-        document.querySelectorAll('.project-carousel').forEach(carousel => {
+        document.querySelectorAll('.carousel').forEach((carousel, index) => {
             const carouselInner = carousel.querySelector('.carousel-inner');
-            const prevBtn = carousel.querySelector('.prev-btn');
-            const nextBtn = carousel.querySelector('.next-btn');
             const items = carousel.querySelectorAll('.carousel-item');
+            const prevBtn = carousel.parentElement.querySelector('.prev-btn');
+            const nextBtn = carousel.parentElement.querySelector('.next-btn');
             let currentIndex = 0;
-
-            nextBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % items.length;
-                carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
-            });
-
+            
+            if (!items.length || !prevBtn || !nextBtn) return;
+            
+            const updateCarousel = () => {
+                const offset = -currentIndex * 100;
+                carouselInner.style.transform = `translateX(${offset}%)`;
+            };
+            
             prevBtn.addEventListener('click', () => {
                 currentIndex = (currentIndex - 1 + items.length) % items.length;
-                carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+                updateCarousel();
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % items.length;
+                updateCarousel();
+            });
+            
+            // Auto slide
+            let interval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % items.length;
+                updateCarousel();
+            }, 5000);
+            
+            // Pause auto slide on hover
+            carousel.addEventListener('mouseenter', () => {
+                clearInterval(interval);
+            });
+            
+            carousel.addEventListener('mouseleave', () => {
+                interval = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % items.length;
+                    updateCarousel();
+                }, 5000);
             });
         });
-
-        // Fade away landing section and fade in black background on scroll
-        window.addEventListener('scroll', () => {
-            const scrollPosition = window.scrollY;
-            const fadeStart = 20; // Fade starts after scrolling 20px
-            const fadeEnd = 100; // Fade ends after scrolling 100px
-            const opacity = Math.max(0, Math.min(1, (scrollPosition - fadeStart) / (fadeEnd - fadeStart)));
-            fadeOverlay.style.opacity = opacity;
-            landingSection.style.opacity = 1 - opacity;
-            nameLink.style.opacity = opacity;
-            
-        });
-
-        // Handle About Link Click
-        aboutLink.addEventListener('click', (event) => {
-            event.preventDefault();
-            document.body.style.opacity = 0;
-            setTimeout(() => {
-                window.location.href = 'about.html';
-            }, 1000);
-        });
-
-        // Handle Name Link Click
-        nameLink.addEventListener('click', (event) => {
-            event.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Contact Section Scroll Animation
-        observer.observe(contactSection);
-
-        // Read More ↓ Functionality
+        
+        // Read More Toggle
         document.querySelectorAll('.read-more').forEach(button => {
             button.addEventListener('click', () => {
-                const contentIds = [
-                    ['read-more-1', ['read-more-content-1', 'read-more-content-2', 'read-more-content-3']],
-                    ['read-more-2', ['read-more-content-4', 'read-more-content-5']]
-                ];
-
-                contentIds.forEach(pair => {
-                    const [buttonId, contentIds] = pair;
-                    if (button.id === buttonId) {
-                        contentIds.forEach(id => {
-                            const content = document.getElementById(id);
-                            if (content) {
-                                content.style.display = content.style.display === 'none' ? 'block' : 'none';
-                            }
-                        });
-                        button.textContent = button.textContent === 'Read More ↓' ? 'Read Less ↑' : 'Read More ↓';
-                    }
-                });
+                const id = button.id.split('-').pop();
+                const content = document.getElementById(`details-content-${id}`);
+                const icon = button.querySelector('i');
+                
+                content.classList.toggle('hidden');
+                
+                if (content.classList.contains('hidden')) {
+                    button.querySelector('span').textContent = 'Read More';
+                    icon.classList.remove('rotate-180');
+                } else {
+                    button.querySelector('span').textContent = 'Read Less';
+                    icon.classList.add('rotate-180');
+                }
+            });
+        });
+        
+        // Contact Form
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Here you would typically send the form data to a backend server
+            // For this example, we'll just show a success message
+            
+            const formData = new FormData(contactForm);
+            const formValues = Object.fromEntries(formData.entries());
+            
+            // Form validation
+            let isValid = true;
+            const name = formValues.name.trim();
+            const email = formValues.email.trim();
+            const message = formValues.message.trim();
+            
+            if (!name) {
+                isValid = false;
+                alert('Please enter your name.');
+            } else if (!email || !email.includes('@')) {
+                isValid = false;
+                alert('Please enter a valid email address.');
+            } else if (!message) {
+                isValid = false;
+                alert('Please enter a message.');
+            }
+            
+            if (isValid) {
+                alert('Thank you for your message! I will get back to you soon.');
+                contactForm.reset();
+            }
+        });
+        
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scroll for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Offset for navbar
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>
